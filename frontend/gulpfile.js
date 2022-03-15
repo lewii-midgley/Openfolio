@@ -22,7 +22,7 @@ function watchFiles(cb){
     // watch('./*.html', htmlBeautify)
 }
 
-exports.watch = watchFiles
+exports.watch = watchFiles;
 
 // Minify function
 // 
