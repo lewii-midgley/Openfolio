@@ -1,0 +1,51 @@
+@import 'mixins';
+@import 'var';
+
+.card{
+    cursor: pointer;
+    height: 200px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.2s;
+
+    background: url(../img/testbackground.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+
+    &__icon{
+        padding: 0rem 0.5rem 0rem 0.5rem;
+        transition: 0.2s;
+    }
+    &__icon:hover{
+        cursor: pointer;
+        color: $primaryBlue;
+        transform: scale(1.3);
+        transition: 0.2s;
+    }
+    &__icon:active{
+        transform: scale(1);
+    }
+    &__top{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    &__title{
+        font-family: $primaryFont;
+        font-weight: 500;
+        color: white;
+    }
+    &__author{
+        font-family: $primaryFont;
+        font-weight: 300;
+        color: white;
+    }
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: 0.2s;
+}

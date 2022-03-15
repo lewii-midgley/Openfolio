@@ -1,0 +1,45 @@
+@import 'mixins';
+@import 'var';
+
+.main{
+    background: $primaryBlue;
+    min-height: 85vh;
+    
+    &__container{
+        width: 70%;
+        margin: 0 auto;
+    }
+    &__navAdd{
+        display: flex;
+        align-items: center;
+    }
+    &__navAdd:hover{
+        cursor: pointer;
+        color: blue;
+    }
+    &__navAuthor:hover{
+        cursor: pointer;
+    }
+    &__nav{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem
+    }
+    &__btn{
+        cursor: pointer;
+        @include mainBtn;
+        margin-right: 5px;
+    }
+
+
+    // GRID
+
+    &__grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+    }
+}
+
+
