@@ -1,0 +1,41 @@
+.main {
+  background: #000B32;
+  min-height: 85vh;
+}
+.main__container {
+  width: 70%;
+  margin: 0 auto;
+}
+.main__navAdd {
+  display: flex;
+  align-items: center;
+}
+.main__navAdd:hover {
+  cursor: pointer;
+  color: blue;
+}
+.main__navAuthor:hover {
+  cursor: pointer;
+}
+.main__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.main__btn {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  margin-right: 5px;
+}
+.main__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}

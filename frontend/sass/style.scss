@@ -1,3 +1,7 @@
+@import 'mixins';
+@import 'var';
+@import 'main';
+@import 'card';
 @import "footer";
 @import "navigation";
 
@@ -9,3 +13,8 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+
+.icon{
+    color: white;
+}
+
