@@ -1,42 +1,28 @@
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
 .main {
   background: #000B32;
   min-height: 85vh;
 }
-
 .main__container {
   width: 70%;
   margin: 0 auto;
 }
-
 .main__navAdd {
   display: flex;
   align-items: center;
 }
-
 .main__navAdd:hover {
   cursor: pointer;
   color: blue;
 }
-
 .main__navAuthor:hover {
   cursor: pointer;
 }
-
 .main__nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
 }
-
 .main__btn {
   cursor: pointer;
   background: none;
@@ -48,7 +34,6 @@
   font-weight: 300;
   margin-right: 5px;
 }
-
 .main__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -67,35 +52,29 @@
   background-position: center;
   background-size: cover;
 }
-
 .card__icon {
   padding: 0rem 0.5rem 0rem 0.5rem;
   transition: 0.2s;
 }
-
 .card__icon:hover {
   cursor: pointer;
   color: #000B32;
   transform: scale(1.3);
   transition: 0.2s;
 }
-
 .card__icon:active {
   transform: scale(1);
 }
-
 .card__top {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-
 .card__title {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   color: white;
 }
-
 .card__author {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
@@ -106,7 +85,7 @@
   transform: scale(1.05);
   transition: 0.2s;
 }
-  
+
 .top {
   height: 100vh;
   width: 100vw;
@@ -124,13 +103,11 @@
   padding-top: 2.8rem;
   padding-bottom: 2.8rem;
 }
-
 .footerContainer--h3 {
   font-size: 1rem;
   text-align: center;
   font-family: "Unica One", cursive;
 }
-
 .footerContainer--img {
   height: 1.4rem;
 }
@@ -144,10 +121,16 @@
   align-items: center;
   justify-content: center;
 }
-
 .navigation__image {
-  width: 6%;
+  width: 4rem;
   height: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
 }
 
 .icon {
