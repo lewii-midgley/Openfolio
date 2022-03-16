@@ -22,7 +22,7 @@ $(document).ready(function(){
                 let i;
                 document.getElementById('mainGrid').innerHTML = '';
                 for(i = 0; i < projectsFromMongo.length; i++){
-                    console.log(projectsFromMongo);
+                    console.log(projectsFromMongo[i]);
                     document.getElementById('mainGrid').innerHTML +=
                     `<div class="card">
                     <div class="card__top">
