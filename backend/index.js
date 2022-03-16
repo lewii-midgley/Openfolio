@@ -5,9 +5,7 @@ const mongoose = require('mongoose'); // includes mongoose
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const config = require('./config.json');
-
-// const Product = require('./models/product.js');
-// const User = require('./models/user.js');
+const Project = require('./models/project.js');
 const port = 5000;
 
 app.use((req,res,next)=>{
@@ -23,9 +21,9 @@ app.use((req,res,next)=>{
   app.get('/', (req,res)=> res.send('Hello! Im am from the backend!'));
 
 
-mongoose.connect(`mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@cluster0.${config.MONGO_CLUSTER_NAME}.mongodb.net/${config.MONGO_DBNAME}?retryWrites=true&w=majority`, {useNewUrlParser:true,useUnifiedTopology: true}).then(()=>console.log('DB Connected!'))
+mongoose.connect(`mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@cluster0.${config.MONGO_CLUSTER_NAME}.mongodb.net/${config.MONGO_DBNAME}?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true}).then(()=> console.log('DB Connected'))
 .catch(err=>{
-  console.log(`DB Connection Error: ${err.message}`);
+    console.log(`DB Connection Error: ${err.message}`)
 });
 
 app.listen(port,()=>console.log(`My fullstack application is listening on port ${port}`))
