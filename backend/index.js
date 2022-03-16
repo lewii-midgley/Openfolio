@@ -21,3 +21,82 @@ app.use((req,res,next)=>{
   app.use(cors()); // calling cors method with express
   
   app.get('/', (req,res)=> res.send('Hello! Im am from the backend!'));
+
+
+mongoose.connect(`mongodb+srv://${config.MONGO_USER}:${config.MONGO_PASSWORD}@cluster0.${config.MONGO_CLUSTER_NAME}.mongodb.net/${config.MONGO_DBNAME}?retryWrites=true&w=majority`, {useNewUrlParser:true,useUnifiedTopology: true}).then(()=>console.log('DB Connected!'))
+.catch(err=>{
+  console.log(`DB Connection Error: ${err.message}`);
+});
+
+app.listen(port,()=>console.log(`My fullstack application is listening on port ${port}`))
+
+
+
+  // Post a product to the database
+
+app.post('/addProject',(req,res)=>{
+  const dbProject = new Project({
+    _id: new mongoose.Types.ObjectId,
+    name: req.body.name,
+    image_url: req.body.image_url,
+    description: req.body.decription,
+    author: req.body.decription,
+    url: req.body.description
+  });
+  // save to database and to notify the user
+  dbProject.save().then(result=>{
+    res.send(result);
+  }).catch(err=>res.send(err));
+})
+
+
+
+
+// Update Product on DataBase
+
+app.patch('/updateProduct/:id',(req,res)=>{
+  const idParam = req.params.id;
+  Project.findById(idParam,(err,project)=>{
+      const updatedProject = {
+        name: req.body.name,
+        image_url: req.body.image_url,
+        description: req.body.decription,
+        author: req.body.decription,
+        url: req.body.description
+      }
+      Project.updateOne({_id:idParam}, updatedProject).
+      then(result=>{
+        res.send(result);
+      }).catch(err=> res.send(err));
+  })
+})
+
+
+
+
+// Delete product from DB
+
+app.delete('/deleteProduct/:id',(req,res)=>{
+  const idParam = req.params.id;
+  Project.findOne({_id:idParam}, (err,project)=>{
+    if(project){
+      Project.deleteOne({_id:idParam},err=>{
+        console.log('deleted on backend request');
+      });
+    } else {
+      alert('Not found');
+    }
+  }).catch(err=> res.send(err));
+
+});//delete
+
+
+
+
+
+// Get all Products for the Database
+app.get('/allProjectsFromDB',(req,res)=>{
+  Project.find().then(result=>{
+    res.send(result);
+  })
+})
