@@ -4,6 +4,7 @@
 @import 'card';
 @import "footer";
 @import "navigation";
+@import 'addModal';
 
 // UNIVERSAL RESETS
 
@@ -18,15 +19,10 @@
     color: white;
 }
 
-
-
-
-
 .modalButton{
     height: 10vh;
     width: 100vw;
 }
-
 
 .modal-header{
     height: 50vh;
