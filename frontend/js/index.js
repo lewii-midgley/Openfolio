@@ -71,27 +71,42 @@ $(document).ready(function(){
             }//error
         })//ajax
     })//view
+ 
+  })
+  
+  
+  
+  
+  
+  
+ 
+ // Project Modal Start
 
+$('#projectModal').click(function(){
 
+    $('#modal-header').empty().append(
+        `
+        <div class="modal-header--close">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        `
+    );
 
+    $('#modal-body').empty().append(
+        `
+        <div class="modal-body--left">
+            <h1 class="modal-body--left__h1">Project One</h1>
+            <p class="modal-body--left__p">Name Last</p>
+        </div>
+    
+        <div class="modal-body--right">
+            <h3 class="modal-body--right__h3">Portfolio</h3>
+            <p class="modal-body--right__p">www.portfolio.com</p>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-})
+        `
+    );
+});
+  
+  
+// Project Modal Finish

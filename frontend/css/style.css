@@ -115,7 +115,6 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  border: 2px solid pink;
   padding-top: 2.8rem;
   padding-bottom: 2.8rem;
 }
@@ -138,9 +137,10 @@
   justify-content: center;
 }
 .navigation__image {
-  width: 6%;
+  width: 4rem;
   height: auto;
 }
+
 
 * {
   margin: 0;
@@ -151,4 +151,77 @@
 
 .icon {
   color: white;
+}
+
+.modalButton {
+  height: 10vh;
+  width: 100vw;
+}
+
+.modal-header {
+  height: 45vh;
+  width: 100%;
+  background: url(../img/testbackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.modal-header--close {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 22rem;
+}
+
+.modal-body {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+}
+.modal-body--left {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 8%;
+}
+.modal-body--left__h1 {
+  font-size: 2.6rem;
+  font-family: "Unica One", cursive;
+  text-align: left;
+  padding-bottom: 0.4rem;
+  color: #000B32;
+  letter-spacing: 0.1rem;
+}
+.modal-body--left__p {
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.05rem;
+}
+.modal-body--right {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 8%;
+  padding-top: 1rem;
+}
+.modal-body--right__h3 {
+  font-size: 1.6rem;
+  font-family: "Unica One", cursive;
+  text-align: center;
+  padding-bottom: 0.4rem;
+  color: #000B32;
+  letter-spacing: 0.05rem;
+}
+.modal-body--right__p {
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  letter-spacing: 0.1rem;
 }
