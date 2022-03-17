@@ -12,6 +12,7 @@ $(document).ready(function(){
         }
     })
 
+
     $('#addProject').click(function(){
         event.preventDefault;
         $.ajax({
@@ -42,32 +43,34 @@ $(document).ready(function(){
         })//ajax
     })//view
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })
+
+
+
+
+
+
+$('#projectModal').click(function(){
+
+    $('#modal-header').empty().append(
+        `
+        <img class="modal-header-IMG" src="./img/testbackground.jpg" alt="Test Background">
+        `
+    );
+
+    $('#modal-body').empty().append(
+        `
+        <div class="modal-body--left">
+            <h1>Project One</h1>
+            <p>Name Las</p>
+        </div>
+    
+        <div class="modal-body--right">
+            <h3>Portfolio</h3>
+            <p>www.portfolio.com</p>
+        </div>
+
+        `
+    );
+});
+
