@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    
     <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
   
     <!-- STYLESHEET -->
@@ -22,14 +23,26 @@
     <link rel="stylesheet" href="../frontEnd/node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
+
+
+
+    <!-- Navigation Start -->
   
     <nav class="navigation">
         <img class="navigation__image" src="./img/logo.png" alt="Logo">
     </nav>
+
+    <!-- Navigation Finish -->
+
+
+
+    <!-- Main Start -->
     
     <div class="main">
         <div class="main__container">
+
             <!-- MAIN NAVBAR -->
+
             <div class="main__nav">
                 <div class="main__navAdd">
                     <button id="addProject" class="main__btn">Add project</button>
@@ -42,6 +55,7 @@
             </div>
 
             <!-- MAIN CONTENT -->
+
             <div id="mainGrid" class="main__grid">
                 <div class="card">
                     <div class="card__top">
@@ -87,6 +101,7 @@
         </div>
     </div>
 
+    <!-- Main Finish -->
 
 
 
@@ -95,29 +110,25 @@
 
 
 
+<!-- View Project Modal Start -->
 
 
-
-<!-- Button trigger modal -->
+<!-- Button trigger modal (Delete when projects are appended) -->
 
 <button id='projectModal' type="button" class="btn btn-primary modalButton" data-bs-toggle="modal" data-bs-target="#project-modal">View Project</button>
 
   <!-- Button trigger modal -->
 
 
-
-
-
 <!-- Modal -->
 
-<div class="modal fade" id="project-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="project-modal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+
     <div class="modal-dialog modal-dialog-centered modal-lg">
 
       <div class="modal-content">
 
         <div id="modal-header" class="modal-header">
-
-          <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
 
         </div>
 
@@ -130,9 +141,13 @@
       </div>
 
     </div>
+
   </div>
 
   <!-- Modal -->
+
+
+  <!-- View Project Modal Finish -->
 
 
 
@@ -144,19 +159,23 @@
     
   
 
-      <!-- Footer -->
+    <!-- Footer Start -->
 
     <div class="footerContainer">
-
         <h3 class="footerContainer--h3">The portfolio’s for design, creativity and innovation on the Internet.</h3>
-
         <img class="footerContainer--img" src="./img/briefCase.png" alt="Openfolio Icon">
-
     </div>
+
+    <!-- Footer Finish -->
   
   
+
+
+
+
 
     <!-- BOOTSTRAP -->
+
     <script src="../frontend/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- JQUERY -->
