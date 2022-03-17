@@ -47,3 +47,17 @@
     transform: scale(1.05);
     transition: 0.2s;
 }
+
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.cardHide{
+    display: none;
+    height: inherit;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}

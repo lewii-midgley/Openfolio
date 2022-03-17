@@ -86,6 +86,22 @@
   transition: 0.2s;
 }
 
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.cardHide {
+  display: none;
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .top {
   height: 100vh;
   width: 100vw;
@@ -123,6 +139,18 @@
 .navigation__image {
   width: 4rem;
   height: auto;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.icon {
+  color: white;
 }
 
 .modalButton {
@@ -196,15 +224,4 @@
   font-family: "Poppins", sans-serif;
   text-align: center;
   letter-spacing: 0.1rem;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
-.icon {
-  color: white;
 }
