@@ -39,24 +39,30 @@ $(document).ready(function(){
                         </div>
                         
                     </div>`
-                    
-
-                   $('.card').mouseover(function(e){
-                       const hides = e.target.querySelectorAll('.hide');
-                       for(const hide of hides){
-                        hide.classList.remove('hide');
-                        hide.classList.add('show');
-                        console.log('mouseover');
-                       }
-                    });
-                    $('.card').mouseout(function(e){
-                        const hides = e.target.querySelectorAll('.show');
-                        for(const hide of hides){
-                         hide.classList.remove('show');
-                         hide.classList.add('hide');
-                         console.log('mouseout');
+                   
+                    // Card Hover
+                   
+                    document.querySelectorAll('.card').forEach(function(card) {
+                        card.addEventListener('mouseenter', function(e) {
+                            console.log('mouseenter');
+                            const hides = e.target.querySelectorAll('.hide');
+                            for(const hide of hides){
+                            hide.classList.remove('hide');
+                            hide.classList.add('show');
                         }
-                     });
+                        });
+                      })
+
+                      document.querySelectorAll('.card').forEach(function(card) {
+                        card.addEventListener('mouseleave', function(e) {
+                            console.log('mouseleave');
+                            const shows = e.target.querySelectorAll('.show');
+                            for(const show of shows){
+                            show.classList.remove('show');
+                            show.classList.add('hide');
+                        }
+                        });
+                      })
                     
                 }
             },//success
@@ -65,10 +71,16 @@ $(document).ready(function(){
             }//error
         })//ajax
     })//view
+ 
+  })
   
   
   
-  // Project Modal Start
+  
+  
+  
+ 
+ // Project Modal Start
 
 $('#projectModal').click(function(){
 
@@ -95,6 +107,6 @@ $('#projectModal').click(function(){
         `
     );
 });
-
+  
+  
 // Project Modal Finish
-
