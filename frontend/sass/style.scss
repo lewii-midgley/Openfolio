@@ -2,9 +2,10 @@
 @import 'var';
 @import 'main';
 @import 'card';
-@import 'footer';
-@import 'navigation';
-@import 'projectModal';
+@import "footer";
+@import "navigation";
+@import 'addProjectModal';
+
 
 // UNIVERSAL RESETS
 
@@ -19,8 +20,50 @@
     color: white;
 }
 
+.modalButton{
+    height: 10vh;
+    width: 100vw;
+}
 
+.modal-header{
+    height: 50vh;
+    width: 100%;
+    background: pink;
+    padding: 0;
+    margin: 0;
+}
 
+.modal-header-IMG{
+    height: 100%;
+    width: 100%;
+}
+
+.modal-body{
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    border: 2px solid green;
+
+    &--left{
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid green;
+    }
+
+    &--right{
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border: 2px solid green;
+    }
+}
 
 
 
