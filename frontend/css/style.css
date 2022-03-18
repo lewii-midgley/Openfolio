@@ -12,16 +12,21 @@
 }
 .main__navAdd:hover {
   cursor: pointer;
-  color: blue;
+}
+.main__navAdd:hover .navChild {
+  color: #57E2E5;
 }
 .main__navAuthor:hover {
   cursor: pointer;
+}
+.main__navAuthor:hover .navChild {
+  color: #57E2E5;
 }
 .main__nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 0rem 1rem 0rem;
 }
 .main__btn {
   cursor: pointer;
@@ -43,7 +48,6 @@
 .projectCard {
   cursor: pointer;
   height: 200px;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -69,15 +73,27 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  padding: 1rem;
+  background: black;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 6%, rgba(0, 0, 0, 0.4040966728) 62%, rgba(0, 0, 0, 0.9307073171) 100%);
+}
+.projectCard__bottom {
+  flex-direction: column;
+  padding: 1rem;
+  background: black;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3872899502) 20%, rgba(0, 0, 0, 0.6533963927) 46%, rgba(0, 0, 0, 0.9307073171) 100%);
 }
 .projectCard__title {
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: white;
+  margin: 0;
 }
 .projectCard__author {
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 200;
   color: white;
 }
 
@@ -91,7 +107,7 @@
 }
 
 .show {
-  display: block;
+  display: flex;
 }
 
 .cardHide {
@@ -292,4 +308,8 @@
 
 .icon {
   color: white;
+}
+
+a {
+  text-decoration: none !important;
 }
