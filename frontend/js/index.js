@@ -44,17 +44,11 @@ $(document).ready(function(){
                     
                     document.getElementById('mainGrid').innerHTML +=
 
-                    `<div id="${projectsFromMongo[i]._id}" class="card" data-bs-toggle="modal" data-bs-target="#project-modal">
-                    
-                        <div id="go" class="card__top">
-                            <i class="hide card__icon icon fa-solid fa-pen"></i>
-                            <i class="hide card__icon icon fa-solid fa-trash"></i>
-
-                    `<div id="${projectsFromMongo[i]._id}" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
+                    `<div id="${projectsFromMongo[i]._id}" data-bs-toggle="modal" data-bs-target="#project-modal" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
                     
                         <div class="hide projectCard__top">
                             <i class="projectCard__icon icon fa-solid fa-pen"></i>
-                            <i class="projectCard__icon icon fa-solid fa-trash"></i>
+                            <i class="projectCard__icon icon fa-solid fa-trash" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
 
                         </div>
                         <div class="hide projectCard__bottom">
