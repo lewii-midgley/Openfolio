@@ -40,7 +40,7 @@
   grid-gap: 1rem;
 }
 
-.card {
+.projectCard {
   cursor: pointer;
   height: 200px;
   padding: 1rem;
@@ -52,38 +52,54 @@
   background-position: center;
   background-size: cover;
 }
-.card__icon {
+.projectCard__icon {
   padding: 0rem 0.5rem 0rem 0.5rem;
   transition: 0.2s;
 }
-.card__icon:hover {
+.projectCard__icon:hover {
   cursor: pointer;
   color: #000B32;
   transform: scale(1.3);
   transition: 0.2s;
 }
-.card__icon:active {
+.projectCard__icon:active {
   transform: scale(1);
 }
-.card__top {
+.projectCard__top {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.card__title {
+.projectCard__title {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   color: white;
 }
-.card__author {
+.projectCard__author {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   color: white;
 }
 
-.card:hover {
+.projectCard:hover {
   transform: scale(1.05);
   transition: 0.2s;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.cardHide {
+  display: none;
+  height: inherit;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .top {
@@ -99,7 +115,6 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  border: 2px solid pink;
   padding-top: 2.8rem;
   padding-bottom: 2.8rem;
 }
@@ -125,6 +140,7 @@
   width: 4rem;
   height: auto;
 }
+
 
 .add-project {
   display: flex;
@@ -194,6 +210,79 @@
   margin-right: 1rem;
 }
 
+.modalButton {
+  height: 10vh;
+  width: 100vw;
+}
+
+.modal-header {
+  height: 45vh;
+  width: 100%;
+  background: url(../img/testbackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.modal-header--close {
+  height: 20%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 22rem;
+}
+
+.modal-body {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+}
+.modal-body--left {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 8%;
+}
+.modal-body--left__h1 {
+  font-size: 2.6rem;
+  font-family: "Unica One", cursive;
+  text-align: left;
+  padding-bottom: 0.4rem;
+  color: #000B32;
+  letter-spacing: 0.1rem;
+}
+.modal-body--left__p {
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.05rem;
+}
+.modal-body--right {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-right: 8%;
+  padding-top: 1rem;
+}
+.modal-body--right__h3 {
+  font-size: 1.6rem;
+  font-family: "Unica One", cursive;
+  text-align: center;
+  padding-bottom: 0.4rem;
+  color: #000B32;
+  letter-spacing: 0.05rem;
+}
+.modal-body--right__p {
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -203,47 +292,4 @@
 
 .icon {
   color: white;
-}
-
-.modalButton {
-  height: 10vh;
-  width: 100vw;
-}
-
-.modal-header {
-  height: 50vh;
-  width: 100%;
-  background: pink;
-  padding: 0;
-  margin: 0;
-}
-
-.modal-header-IMG {
-  height: 100%;
-  width: 100%;
-}
-
-.modal-body {
-  height: 20vh;
-  width: 100%;
-  display: flex;
-  border: 2px solid green;
-}
-.modal-body--left {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 2px solid green;
-}
-.modal-body--right {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 2px solid green;
 }
