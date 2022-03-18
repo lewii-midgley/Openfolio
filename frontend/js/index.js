@@ -28,22 +28,22 @@ $(document).ready(function(){
                     console.log(projectName);
                     
                     document.getElementById('mainGrid').innerHTML +=
-                    `<div id="${projectsFromMongo[i]._id}" class="card">
+                    `<div id="${projectsFromMongo[i]._id}" class="projectCard">
                     
-                        <div class="card__top">
-                            <i class="hide card__icon icon fa-solid fa-pen"></i>
-                            <i class="hide card__icon icon fa-solid fa-trash"></i>
+                        <div class="projectCard__top">
+                            <i class="hide projectCard__icon icon fa-solid fa-pen"></i>
+                            <i class="hide projectCard__icon icon fa-solid fa-trash"></i>
                         </div>
-                        <div class="card__bottom">
-                            <h2 class="hide card__title">${projectsFromMongo[i].name}</h2>
-                            <h3 class="hide card__author">${projectsFromMongo[i].author}</h3>
+                        <div class="projectCard__bottom">
+                            <h2 class="hide projectCard__title">${projectsFromMongo[i].name}</h2>
+                            <h3 class="hide projectCard__author">${projectsFromMongo[i].author}</h3>
                         </div>
                         
                     </div>`
                    
                     // Card Hover
                    
-                    document.querySelectorAll('.card').forEach(function(card) {
+                    document.querySelectorAll('.projectCard').forEach(function(card) {
                         card.addEventListener('mouseenter', function(e) {
                             console.log('mouseenter');
                             const hides = e.target.querySelectorAll('.hide');
@@ -54,7 +54,7 @@ $(document).ready(function(){
                         });
                       })
 
-                      document.querySelectorAll('.card').forEach(function(card) {
+                      document.querySelectorAll('.projectCard').forEach(function(card) {
                         card.addEventListener('mouseleave', function(e) {
                             console.log('mouseleave');
                             const shows = e.target.querySelectorAll('.show');
