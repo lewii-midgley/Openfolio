@@ -28,15 +28,15 @@ $(document).ready(function(){
                     console.log(projectName);
                     
                     document.getElementById('mainGrid').innerHTML +=
-                    `<div id="${projectsFromMongo[i]._id}" class="projectCard">
+                    `<div id="${projectsFromMongo[i]._id}" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
                     
-                        <div class="projectCard__top">
-                            <i class="hide projectCard__icon icon fa-solid fa-pen"></i>
-                            <i class="hide projectCard__icon icon fa-solid fa-trash"></i>
+                        <div class="hide projectCard__top">
+                            <i class="projectCard__icon icon fa-solid fa-pen"></i>
+                            <i class="projectCard__icon icon fa-solid fa-trash"></i>
                         </div>
-                        <div class="projectCard__bottom">
-                            <h2 class="hide projectCard__title">${projectsFromMongo[i].name}</h2>
-                            <h3 class="hide projectCard__author">${projectsFromMongo[i].author}</h3>
+                        <div class="hide projectCard__bottom">
+                            <h2 class="projectCard__title">${projectsFromMongo[i].name}</h2>
+                            <h3 class="projectCard__author">${projectsFromMongo[i].author}</h3>
                         </div>
                         
                     </div>`
