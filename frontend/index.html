@@ -126,7 +126,7 @@
         <div class="modal-content">
             <div class="add-project">
                 <div class="add-project__top">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -138,32 +138,31 @@
             </div>
             <div class="add-project__body">
                 <form class="add-project__form" id="addProjectForm">
-                    <label for="p-title">Title</label>
+                    <label class="add-project__label" for="p-title">Title</label>
                     <br>
                     <input class="rounded-pill add-project__input" id="p-title" type="text" name="projectName">
 
                     <br>
 
-                    <label for="p-image">Image</label>
+                    <label class="add-project__label" for="p-image">Image</label>
                     <br>
                     <input class="rounded-pill add-project__input" id="p-image" type="text" name="projectImage">
 
                     <br>
 
-                    <label for="p-author">Author</label>
+                    <label class="add-project__label" for="p-author">Author</label>
                     <br>
                     <input class="rounded-pill add-project__input" id="p-author" type="text" name="projectAuthor">
 
                     <br>
 
-                    <label for="p-link">Link to portfolio</label>
+                    <label class="add-project__label" for="p-link">Link to portfolio</label>
                     <br>
                     <input class="rounded-pill add-project__input" id="p-link" type="text" name="projectLink">
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+            <div class="add-project__footer">
+                <button type="button" class="btn add-project__confirm" data-bs-dismiss="modal">Confirm</button>
             </div>
         </div>
         </div>
