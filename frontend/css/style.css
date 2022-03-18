@@ -157,7 +157,6 @@
   height: auto;
 }
 
-
 .add-project {
   display: flex;
   justify-content: center;
@@ -231,7 +230,7 @@
   width: 100vw;
 }
 
-.modal-header {
+.project-modal-header {
   height: 45vh;
   width: 100%;
   background: url(../img/testbackground.jpg);
@@ -239,7 +238,7 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.modal-header--close {
+.project-modal-header--close {
   height: 20%;
   width: 100%;
   display: flex;
@@ -247,12 +246,12 @@
   margin-bottom: 22rem;
 }
 
-.modal-body {
+.project-modal-body {
   height: 20vh;
   width: 100%;
   display: flex;
 }
-.modal-body--left {
+.project-modal-body--left {
   height: 100%;
   width: 50%;
   display: flex;
@@ -261,7 +260,7 @@
   flex-direction: column;
   padding-left: 8%;
 }
-.modal-body--left__h1 {
+.project-modal-body--left__h1 {
   font-size: 2.6rem;
   font-family: "Unica One", cursive;
   text-align: left;
@@ -269,12 +268,12 @@
   color: #000B32;
   letter-spacing: 0.1rem;
 }
-.modal-body--left__p {
+.project-modal-body--left__p {
   font-size: 1.4rem;
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.05rem;
 }
-.modal-body--right {
+.project-modal-body--right {
   height: 100%;
   width: 50%;
   display: flex;
@@ -284,7 +283,7 @@
   padding-right: 8%;
   padding-top: 1rem;
 }
-.modal-body--right__h3 {
+.project-modal-body--right__h3 {
   font-size: 1.6rem;
   font-family: "Unica One", cursive;
   text-align: center;
@@ -292,11 +291,68 @@
   color: #000B32;
   letter-spacing: 0.05rem;
 }
-.modal-body--right__p {
+.project-modal-body--right__p {
   font-size: 1.4rem;
   font-family: "Poppins", sans-serif;
   text-align: center;
   letter-spacing: 0.1rem;
+}
+
+.delete-modal-header {
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: white;
+  padding-right: 1rem;
+}
+
+.delete-modal-body {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  font-size: 1.6rem;
+  text-align: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-family: "Poppins", sans-serif;
+}
+
+.delete-modal-footer {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: white;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+.delete-modal-footer__button {
+  background-color: #000B32;
+  color: white;
+  border: none;
+  width: 5rem;
+  padding: 0.6rem;
+  text-align: center;
+  border-radius: 1rem;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #000B32;
+}
+.delete-modal-footer__button2 {
+  background-color: white;
+  color: #000B32;
+  border: none;
+  width: 5rem;
+  padding: 0.6rem;
+  text-align: center;
+  border-radius: 1rem;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #000B32;
 }
 
 * {
@@ -308,6 +364,7 @@
 
 .icon {
   color: white;
+
 }
 
 a {

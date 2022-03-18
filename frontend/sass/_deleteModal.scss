@@ -1,0 +1,68 @@
+@import 'mixins';
+@import 'var';
+
+.delete-modal-header{
+    height: 5vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: white;
+    padding-right: 1rem;
+}
+
+.delete-modal-body{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    font-size: 1.6rem;
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.delete-modal-footer{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: white;
+    padding-left: 10%;
+    padding-right: 10%;
+    // border: 1px solid #000B32;
+
+    &__button{
+        background-color: #000B32;
+        color: white;
+        border: none;
+        width: 5rem;
+        // padding-left: 9rem;
+        // padding-right: 3rem;
+        padding: 0.6rem;
+        text-align: center;
+        border-radius: 1rem;
+        font-family: 'Poppins', sans-serif;
+        border: 1px solid #000B32;
+    }
+
+    &__button2{
+        background-color: white;
+        color: #000B32;
+        border: none;
+        width: 5rem;
+        // padding-left: 9rem;
+        // padding-right: 3rem;
+        padding: 0.6rem;
+        text-align: center;
+        border-radius: 1rem;
+        font-family: 'Poppins', sans-serif;
+        border: 1px solid #000B32;
+    }
+
+
+}
