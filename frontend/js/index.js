@@ -2,17 +2,6 @@
 
 $(document).ready(function(){
 
-    // NAV HOVER ANIMATIONS
-    // $('.main__navAdd').hover(function(){
-    //     $(this).children('.navChild').css("color","blue");
-    // }, function() {
-    //     $(this).children('.navChild').css("color","blue");
-    // });
-    // $('.main__navAuthor').hover(function(){
-    //     $(this).children('.navChild').css("color","blue");
-    // }, function() {
-    //     $(this).children('.navChild').css("color","blue");
-    // });
 
     let url;
 
@@ -109,7 +98,7 @@ $(document).ready(function(){
           alert('Please login and enter all details');
         } else {
           $.ajax({
-            url : `http://${url}/addProduct`,
+            url : `http://${url}/addProject`,
             type : 'POST',
             data :{
               name: name,
@@ -118,7 +107,7 @@ $(document).ready(function(){
               description: description,
               url: link  
             },
-            success : function(product){
+            success : function(project){
               console.log(project);
               alert ('project added');
             },
