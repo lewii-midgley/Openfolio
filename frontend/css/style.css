@@ -12,16 +12,21 @@
 }
 .main__navAdd:hover {
   cursor: pointer;
-  color: blue;
+}
+.main__navAdd:hover .navChild {
+  color: #57E2E5;
 }
 .main__navAuthor:hover {
   cursor: pointer;
+}
+.main__navAuthor:hover .navChild {
+  color: #57E2E5;
 }
 .main__nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 0rem 1rem 0rem;
 }
 .main__btn {
   cursor: pointer;
@@ -40,10 +45,9 @@
   grid-gap: 1rem;
 }
 
-.card {
+.projectCard {
   cursor: pointer;
   height: 200px;
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,36 +56,48 @@
   background-position: center;
   background-size: cover;
 }
-.card__icon {
+.projectCard__icon {
   padding: 0rem 0.5rem 0rem 0.5rem;
   transition: 0.2s;
 }
-.card__icon:hover {
+.projectCard__icon:hover {
   cursor: pointer;
   color: #000B32;
   transform: scale(1.3);
   transition: 0.2s;
 }
-.card__icon:active {
+.projectCard__icon:active {
   transform: scale(1);
 }
-.card__top {
+.projectCard__top {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  padding: 1rem;
+  background: black;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 6%, rgba(0, 0, 0, 0.4040966728) 62%, rgba(0, 0, 0, 0.9307073171) 100%);
 }
-.card__title {
+.projectCard__bottom {
+  flex-direction: column;
+  padding: 1rem;
+  background: black;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3872899502) 20%, rgba(0, 0, 0, 0.6533963927) 46%, rgba(0, 0, 0, 0.9307073171) 100%);
+}
+.projectCard__title {
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: white;
+  margin: 0;
 }
-.card__author {
+.projectCard__author {
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  font-size: 1rem;
+  font-weight: 200;
   color: white;
 }
 
-.card:hover {
+.projectCard:hover {
   transform: scale(1.05);
   transition: 0.2s;
 }
@@ -91,7 +107,7 @@
 }
 
 .show {
-  display: block;
+  display: flex;
 }
 
 .cardHide {
@@ -139,6 +155,74 @@
 .navigation__image {
   width: 4rem;
   height: auto;
+}
+
+.add-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.add-project__top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-project__body {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.add-project__form {
+  width: 80%;
+  height: 80%;
+}
+
+.add-project__input {
+  border: none;
+  background: #EDEDED;
+  width: 100%;
+  margin-bottom: 5%;
+  padding: 1%;
+}
+
+.add-project__label {
+  font-family: "Poppins", sans-serif;
+}
+
+.add-project__footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-project__confirm {
+  margin-bottom: 5%;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  background: #000B32;
+}
+
+.modal-content {
+  height: 50vh;
+  border-radius: 0;
+}
+
+.modal-title {
+  font-family: "Unica One", cursive;
+}
+
+.close {
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  margin-right: 1rem;
 }
 
 .modalButton {
@@ -280,4 +364,9 @@
 
 .icon {
   color: white;
+
+}
+
+a {
+  text-decoration: none !important;
 }

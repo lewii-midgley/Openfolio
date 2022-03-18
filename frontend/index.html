@@ -29,7 +29,8 @@
     <!-- Navigation Start -->
   
     <nav class="navigation">
-        <img class="navigation__image" src="./img/logo.png" alt="Logo">
+        <a href="index.html"><img class="navigation__image" src="./img/logo.png" alt="Logo"></a>
+        
     </nav>
 
     <!-- Navigation Finish -->
@@ -45,12 +46,22 @@
 
             <div class="main__nav">
                 <div class="main__navAdd">
-                    <button id="addProject" class="main__btn">Add project</button>
-                    <i class="icon fa-solid fa-circle-plus"></i>
+                  
+                  
+                  
+
+                    <button id="addProject" class="navChild main__btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Add project</button>
+                    <i class="icon navChild main__icon fa-solid fa-circle-plus"></i>
+
+              
+              
+              
+
+              
                 </div>
                 <div class="main__navAuthor">
-                    <button class="main__btn">Author</button>
-                    <i class="icon fa-solid fa-circle-chevron-down"></i>               
+                    <button class="main__btn navChild">Author</button>
+                    <i class="icon navChild main__icon fa-solid fa-circle-chevron-down"></i>               
                 </div>
             </div>
 
@@ -61,6 +72,7 @@
             </div>
         </div>
     </div>
+
 
     <!-- Main Finish -->
 
@@ -88,6 +100,7 @@
 
 
   <!-- View Project Modal Finish -->
+
 
 
 
@@ -127,21 +140,63 @@
   </div>
 
 
-  <!-- Delete Product Modal Start -->
+  <!-- Delete Product Modal  -->
 
 
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="add-project">
+                <div class="add-project__top">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
 
 
+                <div class="add-project__bottom">
+                    <h2 class="modal-title" id="exampleModalCenterTitle">Add project</h2>
+                </div>
+            </div>
+            <div class="add-project__body">
+                <form class="add-project__form" id="addProjectForm">
+                    <label class="add-project__label" for="p-title">Title</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="p-title" type="text" name="projectName">
 
+                    <br>
 
+                    <label class="add-project__label" for="p-image">Image</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="p-image" type="text" name="projectImage">
 
+                    <br>
 
+                    <label class="add-project__label" for="p-author">Author</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="p-author" type="text" name="projectAuthor">
 
+                    <br>
 
+                    <label class="add-project__label" for="p-description">Description</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="p-description" type="text" name="projectDescription">
 
-    
-  
+                    <br>
+
+                    <label class="add-project__label" for="p-link">Link to portfolio</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="p-link" type="text" name="projectLink">
+                </form>
+            </div>
+            <div class="add-project__footer">
+                <button id="addProjects" type="button" class="btn add-project__confirm" data-bs-dismiss="modal">Confirm</button>
+            </div>
+        </div>
+        </div>
+    </div>
 
     <!-- Footer Start -->
 

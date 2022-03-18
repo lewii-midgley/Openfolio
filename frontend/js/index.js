@@ -1,4 +1,18 @@
+// const project = require("../../backend/models/project.js");
+
 $(document).ready(function(){
+
+    // NAV HOVER ANIMATIONS
+    // $('.main__navAdd').hover(function(){
+    //     $(this).children('.navChild').css("color","blue");
+    // }, function() {
+    //     $(this).children('.navChild').css("color","blue");
+    // });
+    // $('.main__navAuthor').hover(function(){
+    //     $(this).children('.navChild').css("color","blue");
+    // }, function() {
+    //     $(this).children('.navChild').css("color","blue");
+    // });
 
     let url;
 
@@ -29,22 +43,30 @@ $(document).ready(function(){
                     console.log(projectName);
                     
                     document.getElementById('mainGrid').innerHTML +=
+
                     `<div id="${projectsFromMongo[i]._id}" class="card" data-bs-toggle="modal" data-bs-target="#project-modal">
                     
                         <div id="go" class="card__top">
                             <i class="hide card__icon icon fa-solid fa-pen"></i>
                             <i class="hide card__icon icon fa-solid fa-trash"></i>
+
+                    `<div id="${projectsFromMongo[i]._id}" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
+                    
+                        <div class="hide projectCard__top">
+                            <i class="projectCard__icon icon fa-solid fa-pen"></i>
+                            <i class="projectCard__icon icon fa-solid fa-trash"></i>
+
                         </div>
-                        <div class="card__bottom">
-                            <h2 class="hide card__title">${projectsFromMongo[i].name}</h2>
-                            <h3 class="hide card__author">${projectsFromMongo[i].author}</h3>
+                        <div class="hide projectCard__bottom">
+                            <h2 class="projectCard__title">${projectsFromMongo[i].name}</h2>
+                            <h3 class="projectCard__author">${projectsFromMongo[i].author}</h3>
                         </div>
                         
                     </div>`
                    
                     // Card Hover
                    
-                    document.querySelectorAll('.card').forEach(function(card) {
+                    document.querySelectorAll('.projectCard').forEach(function(card) {
                         card.addEventListener('mouseenter', function(e) {
                             console.log('mouseenter');
                             const hides = e.target.querySelectorAll('.hide');
@@ -55,7 +77,7 @@ $(document).ready(function(){
                         });
                       })
 
-                      document.querySelectorAll('.card').forEach(function(card) {
+                      document.querySelectorAll('.projectCard').forEach(function(card) {
                         card.addEventListener('mouseleave', function(e) {
                             console.log('mouseleave');
                             const shows = e.target.querySelectorAll('.show');
@@ -77,8 +99,44 @@ $(document).ready(function(){
         // modal();
 
     }//view
-    // allProjects();
+
     
+
+ 
+    $('#addProjects').click(function(){
+        event.preventDefault();
+        console.log(url);
+        let name = $('#p-title').val();
+        let image_url = $('#p-image').val();
+        let author = $('#p-author').val();
+        let description = $('p-description').val();
+        let link = $('#p-link').val();
+        console.log(name,author, image_url, link, description);
+        if (name == '' || author == '' || image_url == '' || description == ''){
+          alert('Please login and enter all details');
+        } else {
+          $.ajax({
+            url : `http://${url}/addProduct`,
+            type : 'POST',
+            data :{
+              name: name,
+              image_url: image_url,
+              author: author,
+              description: description,
+              url: link  
+            },
+            success : function(product){
+              console.log(project);
+              alert ('project added');
+            },
+            error : function(){
+              console.log('error: cannot call api');
+            }//error
+          })//ajax
+        }//else
+      });//addProduct
+
+
   })
 
 
@@ -154,3 +212,6 @@ $(document).ready(function(){
 
     
 // Project Modal Finish
+
+
+  
