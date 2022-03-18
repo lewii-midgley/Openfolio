@@ -230,8 +230,13 @@
   letter-spacing: 0.1rem;
 }
 
+.delete-modal-content {
+  height: 35vh;
+  width: 100%;
+}
+
 .delete-modal-header {
-  height: 5vh;
+  height: 8vh;
   width: 100%;
   display: flex;
   justify-content: flex-end;
@@ -241,13 +246,13 @@
 }
 
 .delete-modal-body {
-  height: 10vh;
+  height: 15vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background: white;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
   text-align: center;
   padding-left: 5%;
   padding-right: 5%;
@@ -255,7 +260,7 @@
 }
 
 .delete-modal-footer {
-  height: 10vh;
+  height: 12vh;
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -265,8 +270,8 @@
   padding-right: 10%;
 }
 .delete-modal-footer__button {
-  background-color: #000B32;
-  color: white;
+  background-color: white;
+  color: #000B32;
   border: none;
   width: 5rem;
   padding: 0.6rem;
@@ -276,8 +281,8 @@
   border: 1px solid #000B32;
 }
 .delete-modal-footer__button2 {
-  background-color: white;
-  color: #000B32;
+  background-color: #000B32;
+  color: white;
   border: none;
   width: 5rem;
   padding: 0.6rem;
@@ -384,6 +389,10 @@
 
 .modal-content {
   height: 55vh;
+}
+
+.modal-content {
+  height: 50vh;
   border-radius: 0;
 }
 
