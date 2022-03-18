@@ -55,8 +55,7 @@ $(document).ready(function(){
                         <div class="hide projectCard__bottom">
                             <h2 class="projectCard__title">${projectsFromMongo[i].name}</h2>
                             <h3 class="projectCard__author">${projectsFromMongo[i].author}</h3>
-                        </div>
-                        
+                        </div>                        
                     </div>`
                    
                     // Card Hover

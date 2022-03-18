@@ -59,6 +59,7 @@
 .projectCard__icon {
   padding: 0rem 0.5rem 0rem 0.5rem;
   transition: 0.2s;
+  z-index: 10;
 }
 .projectCard__icon:hover {
   cursor: pointer;
@@ -363,7 +364,18 @@
   background: #EDEDED;
   width: 100%;
   margin-bottom: 5%;
-  padding: 1%;
+  padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+}
+
+.add-project__input:focus {
+  -webkit-box-shadow: 0px 0px 15px 2px #bffeff;
+  box-shadow: 0px 0px 15px 2px #bffeff;
+  outline: none;
+}
+
+.add-project__label {
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 0.5rem;
 }
 
 .add-project__label {
@@ -381,6 +393,10 @@
   font-family: "Poppins", sans-serif;
   color: white;
   background: #000B32;
+}
+
+.modal-content {
+  height: auto;
   border: none;
   padding: 0.5rem;
   padding-left: 1rem;
