@@ -1,6 +1,7 @@
 .main {
   background: #000B32;
   min-height: 85vh;
+  padding: 2rem;
 }
 .main__container {
   width: 70%;

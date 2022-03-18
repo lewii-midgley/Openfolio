@@ -2,17 +2,6 @@
 
 $(document).ready(function(){
 
-    // NAV HOVER ANIMATIONS
-    // $('.main__navAdd').hover(function(){
-    //     $(this).children('.navChild').css("color","blue");
-    // }, function() {
-    //     $(this).children('.navChild').css("color","blue");
-    // });
-    // $('.main__navAuthor').hover(function(){
-    //     $(this).children('.navChild').css("color","blue");
-    // }, function() {
-    //     $(this).children('.navChild').css("color","blue");
-    // });
 
     let url;
 
