@@ -45,6 +45,7 @@ $(document).ready(function(){
                     document.getElementById('mainGrid').innerHTML +=
 
                     `<div id="${projectsFromMongo[i]._id}" data-bs-toggle="modal" data-bs-target="#project-modal" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
+
                     
                         <div class="hide projectCard__top">
                             <i class="projectCard__icon icon fa-solid fa-pen"></i>
@@ -110,7 +111,7 @@ $(document).ready(function(){
           alert('Please login and enter all details');
         } else {
           $.ajax({
-            url : `http://${url}/addProduct`,
+            url : `http://${url}/addProject`,
             type : 'POST',
             data :{
               name: name,
@@ -119,7 +120,7 @@ $(document).ready(function(){
               description: description,
               url: link  
             },
-            success : function(product){
+            success : function(project){
               console.log(project);
               alert ('project added');
             },
