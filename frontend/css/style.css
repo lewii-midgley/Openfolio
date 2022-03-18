@@ -12,16 +12,21 @@
 }
 .main__navAdd:hover {
   cursor: pointer;
-  color: blue;
+}
+.main__navAdd:hover .navChild {
+  color: #57E2E5;
 }
 .main__navAuthor:hover {
   cursor: pointer;
+}
+.main__navAuthor:hover .navChild {
+  color: #57E2E5;
 }
 .main__nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1rem 0rem 1rem 0rem;
 }
 .main__btn {
   cursor: pointer;
@@ -234,4 +239,8 @@
 
 .icon {
   color: white;
+}
+
+a {
+  text-decoration: none !important;
 }
