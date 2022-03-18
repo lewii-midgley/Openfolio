@@ -68,47 +68,70 @@
 
 
 
-
-
-
 <!-- View Project Modal Start -->
-
-
-<!-- Button trigger modal (Delete when projects are appended) -->
-
-<button id='projectModal' type="button" class="btn btn-primary modalButton" data-bs-toggle="modal" data-bs-target="#project-modal">View Project</button>
-
-  <!-- Button trigger modal -->
-
 
 <!-- Modal -->
 
 <div class="modal fade" id="project-modal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
 
     <div class="modal-dialog modal-dialog-centered modal-lg">
-
       <div class="modal-content">
-
-        <div id="modal-header" class="modal-header">
-
+        <div id="project-modal-header" class="project-modal-header">
         </div>
-
-
-        <div id="modal-body" class="modal-body">
-
+        <div id="project-modal-body" class="project-modal-body">
         </div>
-
-
       </div>
-
     </div>
-
   </div>
 
   <!-- Modal -->
 
 
   <!-- View Project Modal Finish -->
+
+
+
+
+
+  <!-- Delete Product Modal Start -->
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+
+      <div class="modal-content">
+
+        <div class="delete-modal-header">
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+
+        <div class="delete-modal-body">
+
+          Are you sure you want to delete this project?
+
+        </div>
+        
+        <div class="delete-modal-footer">
+          <button class="delete-modal-footer__button" type="button" class="btn btn-primary">Yes</button>
+          <button class="delete-modal-footer__button2" type="button" class="btn btn-primary">No</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Delete Product Modal Start -->
+
+
+
+
 
 
 

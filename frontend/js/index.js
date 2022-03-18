@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
     let url;
+
     $.ajax({
         url: 'config.json',
         type: 'GET',
@@ -28,9 +29,9 @@ $(document).ready(function(){
                     console.log(projectName);
                     
                     document.getElementById('mainGrid').innerHTML +=
-                    `<div id="${projectsFromMongo[i]._id}" class="card">
+                    `<div id="${projectsFromMongo[i]._id}" class="card" data-bs-toggle="modal" data-bs-target="#project-modal">
                     
-                        <div class="card__top">
+                        <div id="go" class="card__top">
                             <i class="hide card__icon icon fa-solid fa-pen"></i>
                             <i class="hide card__icon icon fa-solid fa-trash"></i>
                         </div>
@@ -63,53 +64,93 @@ $(document).ready(function(){
                             show.classList.add('hide');
                         }
                         });
-                      })
-                    
+                      })    
                 }
+                
             },//success
             error:function(){
                 alert('Unable to get products');
             }//error
+            
         })//ajax
-    }//view
- 
-    // allProjects();
 
+        // modal();
+
+    }//view
+    // allProjects();
+    
   })
+
+
+
+  
   
   
  
   
-  
-  
- 
+   
  // Project Modal Start
 
-$('#projectModal').click(function(){
 
-    $('#modal-header').empty().append(
-        `
-        <div class="modal-header--close">
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        `
-    );
+  function modal(url){
 
-    $('#modal-body').empty().append(
-        `
-        <div class="modal-body--left">
-            <h1 class="modal-body--left__h1">Project One</h1>
-            <p class="modal-body--left__p">Name Last</p>
-        </div>
+    console.log("Hello");
+
+    $.ajax({
+        type: 'GET',
+        url: `http://${url}/allProjectsFromDB`,
+        dataType: 'json',
+        success:function(projectsFromMongo){
+
+            // projectsFromMongo.projects.forEach((item, f) => {
+            //     item.id = f + 1;
+            // })
+
+            $("#id").click(function(){
+
+                console.log("Hello");
+
+                // let i;
+                // for(i = 0; i < projectsFromMongo.length; i++){
+
+                //     if(parseInt(this.id) === projectsFromMongo[i]._id){
+
+                $('#project-modal-header').empty().append(
+                    `
+                    <div class="modal-header--close">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    `
+                );
+            
+                $('#project-modal-body').empty().append(
+                    `
+                    <div class="modal-body--left">
+                        <h1 class="modal-body--left__h1">Project One</h1>
+                        <p class="modal-body--left__p">Name Last</p>
+                    </div>
+                
+                    <div class="modal-body--right">
+                        <h3 class="modal-body--right__h3">Portfolio</h3>
+                        <p class="modal-body--right__p">www.portfolio.com</p>
+                    </div>
+            
+                    `
+                );
+
+        //     } // End of for loop
+        // } // If
+
+            });
+        },//success
+        error:function(){
+            // alert('Not Working');
+            console.log("You suck")
+        }//error
+    })//ajax
+}//view
+
+
+
     
-        <div class="modal-body--right">
-            <h3 class="modal-body--right__h3">Portfolio</h3>
-            <p class="modal-body--right__p">www.portfolio.com</p>
-        </div>
-
-        `
-    );
-});
-  
-  
 // Project Modal Finish
