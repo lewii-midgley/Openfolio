@@ -1,3 +1,5 @@
+// const project = require("../../backend/models/project.js");
+
 $(document).ready(function(){
 
     // NAV HOVER ANIMATIONS
@@ -85,7 +87,38 @@ $(document).ready(function(){
         })//ajax
     }//view
  
-    // allProjects();
+    $('#addProjects').click(function(){
+        event.preventDefault();
+        console.log(url);
+        let name = $('#p-title').val();
+        let image_url = $('#p-image').val();
+        let author = $('#p-author').val();
+        let description = $('p-description').val();
+        let link = $('#p-link').val();
+        console.log(name,author, image_url, link, description);
+        if (name == '' || author == '' || image_url == '' || description == ''){
+          alert('Please login and enter all details');
+        } else {
+          $.ajax({
+            url : `http://${url}/addProduct`,
+            type : 'POST',
+            data :{
+              name: name,
+              image_url: image_url,
+              author: author,
+              description: description,
+              url: link  
+            },
+            success : function(product){
+              console.log(project);
+              alert ('project added');
+            },
+            error : function(){
+              console.log('error: cannot call api');
+            }//error
+          })//ajax
+        }//else
+      });//addProduct
 
   })
   
@@ -125,3 +158,7 @@ $('#projectModal').click(function(){
   
   
 // Project Modal Finish
+
+//add a project
+
+  
