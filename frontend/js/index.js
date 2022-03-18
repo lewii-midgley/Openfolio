@@ -9,11 +9,12 @@ $(document).ready(function(){
             console.log(configData);
             url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
             console.log(url);
+            allProjects(url);
         }
     })
 
-    $('#addProject').click(function(){
-        event.preventDefault;
+    function allProjects(url){
+        // event.preventDefault;
         $.ajax({
             url: `http://${url}/allProjectsFromDB`,
             type: 'GET',
@@ -70,12 +71,14 @@ $(document).ready(function(){
                 alert('Unable to get products');
             }//error
         })//ajax
-    })//view
+    }//view
  
+    // allProjects();
+
   })
   
   
-  
+ 
   
   
   
