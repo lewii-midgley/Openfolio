@@ -2,7 +2,6 @@
 
 $(document).ready(function(){
 
-
     let url;
 
     $.ajax({
@@ -37,8 +36,9 @@ $(document).ready(function(){
 
                     
                         <div class="hide projectCard__top">
-                            <i class="projectCard__icon icon fa-solid fa-pen"></i>
-                            <i class="projectCard__icon icon fa-solid fa-trash" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>
+                            <i class="projectCard__icon icon fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#updateModal"></i>
+
+                            <i class="projectCard__icon icon fa-solid fa-trash" data-bs-toggle="modal" data-bs-target='#deleteModal'></i>
 
                         </div>
                         <div class="hide projectCard__bottom">
@@ -85,14 +85,13 @@ $(document).ready(function(){
 
     
 
- 
     $('#addProjects').click(function(){
         event.preventDefault();
         console.log(url);
         let name = $('#p-title').val();
         let image_url = $('#p-image').val();
         let author = $('#p-author').val();
-        let description = $('p-description').val();
+        let description = $('#p-description').val();
         let link = $('#p-link').val();
         console.log(name,author, image_url, link, description);
         if (name == '' || author == '' || image_url == '' || description == ''){
@@ -117,7 +116,84 @@ $(document).ready(function(){
             }//error
           })//ajax
         }//else
-      });//addProduct
+      });//addProject
+
+
+
+
+
+    //   Update Project
+
+
+    // Update Product Call
+
+    $('#updateProject').click(function(){
+        event.preventDefault();
+        let projectId = $('#u-id').val();
+        let projectName = $('#u-title').val();
+        let projectImage_url = $('#u-image').val();
+        let projectauthor = $('#u-author').val();
+        let projectDescription = $('#u-description').val();
+        let projectLink = $('#u-link').val();
+      
+        console.log(projectId , projectName, projectImage_url, projectauthor, projectDescription, projectLink );
+      
+        if (projectId == ''){
+          alert('Please enter Project id for updating');
+      
+        } else{
+          $.ajax({
+            url: `http://${url}/updateProject/${projectId}`,
+            type: 'PATCH',
+            data:{
+              name: projectName,
+              image_url: projectImage_url,
+              author: projectauthor,
+              description: projectDescription,
+              url: projectLink
+            },
+            success: function(data){
+              console.log(data);
+              alert('Project Updated');
+            },
+            error: function(){
+              console.log('Error: cannot update project');
+            } // Error
+          }) // AJAX
+        } // If
+      }) // UpdateProject
+
+
+
+
+
+
+
+
+
+      //Delete Product
+
+      $('#deleteProject').click(function(){
+        event.preventDefault();
+        let projectId = $('#delProjectId').val();
+
+        console.log(projectId);
+        if (projectId == ''){
+            alert('Please enter the project ID');
+        } else {
+            $.ajax({
+                url : `http://${url}/deleteProject/${projectId}`,
+                type:'DELETE',
+                success : function(){
+                    console.log('Deleted');
+                    alert('Project Deleted');
+                }, //success
+                error:function(){ 
+                    console.log('Error: cannot call API'); 
+                }//error
+            })//ajax
+        }//if
+    })//deleteProject
 
 
   })
@@ -125,10 +201,7 @@ $(document).ready(function(){
 
 
   
-  
-  
- 
-  
+
    
  // Project Modal Start
 
@@ -147,7 +220,7 @@ $(document).ready(function(){
             //     item.id = f + 1;
             // })
 
-            $("#id").click(function(){
+            $("Needs-a-target").click(function(){
 
                 console.log("Hello");
 

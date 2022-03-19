@@ -47,7 +47,7 @@
             <div class="main__nav">
                 <div class="main__navAdd">
                   
-                    <button id="addProject" class="navChild main__btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Add project</button>
+                    <button id="addProject" class="navChild main__btn" data-bs-toggle="modal" data-bs-target="#addProjectModal">Add project</button>
                     <i class="icon navChild main__icon fa-solid fa-circle-plus"></i>
 
                 </div>
@@ -98,43 +98,12 @@
 
 
 
-  <!-- Delete Product Modal Start -->
-  
-  <!-- Modal -->
-  <div class="modal fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
 
-      <div class="delete-modal-content">
-
-        <div class="delete-modal-header">
-
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-        </div>
-
-        <div class="delete-modal-body">
-
-          Are you sure you want to delete this project?
-
-        </div>
-        
-        <div class="delete-modal-footer">
-          <button class="delete-modal-footer__button" type="button" class="btn btn-primary">Yes</button>
-          <button class="delete-modal-footer__button2" type="button" class="btn btn-primary">No</button>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-
-  <!-- Delete Product Modal  -->
-
-
+  <!-- Add Project Modal -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
         <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="add-project">
@@ -185,6 +154,129 @@
         </div>
         </div>
     </div>
+
+
+    <!-- Add Project Modal Finished -->
+
+
+
+
+
+
+
+
+
+      <!-- Update Project Modal -->
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="add-project">
+                <div class="add-project__top">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="add-project__bottom">
+                    <h2 class="modal-title">Update project</h2>
+                </div>
+            </div>
+            <div class="add-project__body">
+                <form class="add-project__form">
+
+                    <label class="add-project__label" for="p-title">Project ID</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="u-id" type="text" name="projectName">
+
+                    <br>
+
+                    <label class="add-project__label" for="p-title">Title</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="u-title" type="text" name="projectName">
+
+                    <br>
+
+                    <label class="add-project__label" for="p-image">Image</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="u-image" type="text" name="projectImage">
+
+                    <br>
+
+                    <label class="add-project__label" for="p-author">Author</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="u-author" type="text" name="projectAuthor">
+
+                    <br>
+
+                    <label class="add-project__label" for="p-description">Description</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="u-description" type="text" name="projectDescription">
+
+                    <br>
+
+                    <label class="add-project__label" for="u-link">Link to portfolio</label>
+                    <br>
+                    <input class="rounded-pill add-project__input" id="u-link" type="text" name="projectLink">
+                </form>
+            </div>
+            <div class="add-project__footer">
+                <button id="updateProject" type="button" class="add-project__confirm" data-bs-dismiss="modal">Update</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+     <!-- Delete Product Modal Start -->
+  
+  <!-- Modal -->
+
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="add-project">
+            <div class="add-project__top">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="add-project__bottom">
+                <h2 class="modal-title">Delete Project</h2>
+            </div>
+            <br>
+        </div>
+        <div class="add-project__body">
+            <form class="add-project__form">
+                <label class="add-project__label center" for="p-link">Please enter Project ID to delete</label>
+                <br>
+                <input type="text" class="ml-5 rounded-pill first" id="delProjectId" name="inputId">
+            </form>
+            <br>
+        </div>
+        <div class="add-project__footer">
+            <button id="deleteProject" type="button" class="add-project__confirm" data-bs-dismiss="modal">Confirm</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+  <!-- Delete Product Modal Finish  -->
+
+
+
+
+
+
 
 
 
