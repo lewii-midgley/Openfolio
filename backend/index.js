@@ -37,9 +37,9 @@ app.post('/addProject',(req,res)=>{
     _id: new mongoose.Types.ObjectId,
     name: req.body.name,
     image_url: req.body.image_url,
-    description: req.body.decription,
-    author: req.body.decription,
-    url: req.body.description
+    description: req.body.description,
+    author: req.body.author,
+    url: req.body.url
   });
   // save to database and to notify the user
   dbProject.save().then(result=>{
@@ -52,15 +52,15 @@ app.post('/addProject',(req,res)=>{
 
 // Update Product on DataBase
 
-app.patch('/updateProduct/:id',(req,res)=>{
+app.patch('/updateProject/:id',(req,res)=>{
   const idParam = req.params.id;
   Project.findById(idParam,(err,project)=>{
       const updatedProject = {
         name: req.body.name,
         image_url: req.body.image_url,
-        description: req.body.decription,
-        author: req.body.decription,
-        url: req.body.description
+        description: req.body.description,
+        author: req.body.author,
+        url: req.body.url
       }
       Project.updateOne({_id:idParam}, updatedProject).
       then(result=>{
@@ -74,7 +74,7 @@ app.patch('/updateProduct/:id',(req,res)=>{
 
 // Delete product from DB
 
-app.delete('/deleteProduct/:id',(req,res)=>{
+app.delete('/deleteProject/:id',(req,res)=>{
   const idParam = req.params.id;
   Project.findOne({_id:idParam}, (err,project)=>{
     if(project){

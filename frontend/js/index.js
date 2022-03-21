@@ -51,7 +51,6 @@ $(document).ready(function(){
                    
                     document.querySelectorAll('.projectCard').forEach(function(card) {
                         card.addEventListener('mouseenter', function(e) {
-                            console.log('mouseenter');
                             const hides = e.target.querySelectorAll('.hide');
                             for(const hide of hides){
                             hide.classList.remove('hide');
@@ -62,7 +61,6 @@ $(document).ready(function(){
 
                       document.querySelectorAll('.projectCard').forEach(function(card) {
                         card.addEventListener('mouseleave', function(e) {
-                            console.log('mouseleave');
                             const shows = e.target.querySelectorAll('.show');
                             for(const show of shows){
                             show.classList.remove('show');
