@@ -13,6 +13,7 @@ $(document).ready(function(){
             url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
             console.log(url);
             allProjects(url);
+            modal(url);
         }
     })
 
@@ -28,11 +29,10 @@ $(document).ready(function(){
                 for(i = 0; i < projectsFromMongo.length; i++){
                    
                     let projectName = projectsFromMongo[i].name;
-                    console.log(projectName);
                     
                     document.getElementById('mainGrid').innerHTML +=
 
-                    `<div id="${projectsFromMongo[i]._id}" data-bs-toggle="modal" data-bs-target="#project-modal" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
+                    `<div id="${projectsFromMongo[i]._id}" value="${projectsFromMongo[i]._id}" data-bs-toggle="modal" data-bs-target="#project-modal" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
 
                     
                         <div class="hide projectCard__top">
@@ -68,6 +68,51 @@ $(document).ready(function(){
                         }
                         });
                       })    
+
+                      //Modal
+                      document.querySelectorAll('.projectCard').forEach(function(card) {
+                        card.addEventListener('click', function(e) {
+            
+                          let projectId = e.target.id;
+                          console.log(projectId);
+
+                          $.ajax({
+                            type: 'GET',
+                            url: `http://${url}/allProjectsFromDB/${projectId}`,
+                            dataType: 'json',
+                            success:function(singleProject){
+                              console.log(singleProject);
+                                    // $('#project-modal-header').empty().append(
+                                    //     `
+                                    //     <div class="modal-header--close">
+                                    //     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    //     </div>
+                                    //     `
+                                    // );
+                                
+                                    // $('#project-modal-body').empty().append(
+                                    //     `
+                                    //     <div class="modal-body--left">
+                                    //         <h1 class="modal-body--left__h1">Project One</h1>
+                                    //         <p class="modal-body--left__p">Name Last</p>
+                                    //     </div>
+                                    
+                                    //     <div class="modal-body--right">
+                                    //         <h3 class="modal-body--right__h3">Portfolio</h3>
+                                    //         <p class="modal-body--right__p">www.portfolio.com</p>
+                                    //     </div>
+                                
+                                    //     `
+                                    // );
+                            },//success
+                            error:function(){
+                                // alert('Not Working');
+                                console.log("You suck")
+                            }//error
+                        })//ajax
+                            
+                        });
+                      })
                 }
                 
             },//success
@@ -194,78 +239,87 @@ $(document).ready(function(){
     })//deleteProject
 
 
-  })
 
 
 
-  
-
-   
- // Project Modal Start
 
 
-  function modal(url){
 
-    console.log("Hello");
 
-    $.ajax({
-        type: 'GET',
-        url: `http://${url}/allProjectsFromDB`,
-        dataType: 'json',
-        success:function(projectsFromMongo){
 
-            // projectsFromMongo.projects.forEach((item, f) => {
-            //     item.id = f + 1;
-            // })
 
-            $("Needs-a-target").click(function(){
 
-                console.log("Hello");
 
-                // let i;
-                // for(i = 0; i < projectsFromMongo.length; i++){
+    // ================================================
+    // BELOW IS THE OLD MODAL, KEEPING IN CASE WE NEED
+    // ================================================
 
-                //     if(parseInt(this.id) === projectsFromMongo[i]._id){
 
-                $('#project-modal-header').empty().append(
-                    `
-                    <div class="modal-header--close">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    `
-                );
-            
-                $('#project-modal-body').empty().append(
-                    `
-                    <div class="modal-body--left">
-                        <h1 class="modal-body--left__h1">Project One</h1>
-                        <p class="modal-body--left__p">Name Last</p>
-                    </div>
-                
-                    <div class="modal-body--right">
-                        <h3 class="modal-body--right__h3">Portfolio</h3>
-                        <p class="modal-body--right__p">www.portfolio.com</p>
-                    </div>
-            
-                    `
-                );
-
-        //     } // End of for loop
-        // } // If
-
-            });
-        },//success
-        error:function(){
-            // alert('Not Working');
-            console.log("You suck")
-        }//error
-    })//ajax
-}//view
 
 
 
     
-// Project Modal Finish
+  //   function modal(link){
+
+
+      
+  //     console.log("Hello");
+  
+  //     $.ajax({
+  //         type: 'GET',
+  //         url: `http://${link}/allProjectsFromDB`,
+  //         dataType: 'json',
+  //         success:function(projectsFromMongo){
+  
+  //             // projectsFromMongo.projects.forEach((item, f) => {
+  //             //     item.id = f + 1;
+  //             // })
+  
+  //             $(".projectCard").click(function(){
+  
+  //                 console.log(projectsFromMongo);
+  
+  //                 // let i;
+  //                 // for(i = 0; i < projectsFromMongo.length; i++){
+  
+  //                 //     if(parseInt(this.id) === projectsFromMongo[i]._id){
+  
+  //                 $('#project-modal-header').empty().append(
+  //                     `
+  //                     <div class="modal-header--close">
+  //                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  //                     </div>
+  //                     `
+  //                 );
+              
+  //                 $('#project-modal-body').empty().append(
+  //                     `
+  //                     <div class="modal-body--left">
+  //                         <h1 class="modal-body--left__h1">Project One</h1>
+  //                         <p class="modal-body--left__p">Name Last</p>
+  //                     </div>
+                  
+  //                     <div class="modal-body--right">
+  //                         <h3 class="modal-body--right__h3">Portfolio</h3>
+  //                         <p class="modal-body--right__p">www.portfolio.com</p>
+  //                     </div>
+              
+  //                     `
+  //                 );
+  
+  //         //     } // End of for loop
+  //         // } // If
+  
+  //             });
+  //         },//success
+  //         error:function(){
+  //             // alert('Not Working');
+  //             console.log("You suck")
+  //         }//error
+  //     })//ajax
+  // }//view
+})// doco ready end
+
 
 
   
