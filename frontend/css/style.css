@@ -7,6 +7,11 @@
   width: 70%;
   margin: 0 auto;
 }
+@media (min-width: 1px) and (max-width:470px) {
+  .main__container {
+    width: 90%;
+  }
+}
 .main__navAdd {
   display: flex;
   align-items: center;
@@ -44,6 +49,16 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
+}
+@media (min-width: 750px) and (max-width:1099px) {
+  .main__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1px) and (max-width:749px) {
+  .main__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .projectCard {
