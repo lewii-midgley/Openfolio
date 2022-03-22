@@ -1,4 +1,3 @@
-// const project = require("../../backend/models/project.js");
 
 $(document).ready(function(){
 
@@ -107,17 +106,16 @@ $(document).ready(function(){
                             },//success
                             error:function(){
                                 // alert('Not Working');
-                                console.log("You suck")
+                                console.log("Not Working")
                             }//error
                         })//ajax
                             
                         });
                       })
-                }
-                
+                } 
             },//success
             error:function(){
-                alert('Unable to get products');
+                alert('Unable to get Projects');
             }//error
             
         })//ajax
@@ -127,6 +125,10 @@ $(document).ready(function(){
     }//view
 
     
+
+
+
+    // Add Project
 
     $('#addProjects').click(function(){
         event.preventDefault();
@@ -138,7 +140,7 @@ $(document).ready(function(){
         let link = $('#p-link').val();
         console.log(name,author, image_url, link, description);
         if (name == '' || author == '' || image_url == '' || description == ''){
-          alert('Please login and enter all details');
+          alert('Please input all details');
         } else {
           $.ajax({
             url : `http://${url}/addProject`,
@@ -152,10 +154,10 @@ $(document).ready(function(){
             },
             success : function(project){
               console.log(project);
-              alert ('project added');
+              alert ('Project added');
             },
             error : function(){
-              console.log('error: cannot call api');
+              console.log('Error: cannot call api');
             }//error
           })//ajax
         }//else
@@ -166,9 +168,6 @@ $(document).ready(function(){
 
 
     //   Update Project
-
-
-    // Update Product Call
 
     $('#updateProject').click(function(){
         event.preventDefault();
@@ -211,9 +210,6 @@ $(document).ready(function(){
 
 
 
-
-
-
       //Delete Product
 
       $('#deleteProject').click(function(){
@@ -237,13 +233,6 @@ $(document).ready(function(){
             })//ajax
         }//if
     })//deleteProject
-
-
-
-
-
-
-
 
 
 
