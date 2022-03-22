@@ -1,5 +1,4 @@
-
-$(document).ready(function(){
+$(document).ready(function() {
 
     let url;
 
@@ -7,33 +6,34 @@ $(document).ready(function(){
         url: 'config.json',
         type: 'GET',
         dataType: 'json',
-        success:function(configData){
+        success: function(configData) {
             console.log(configData);
             url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
             console.log(url);
             allProjects(url);
-            modal(url);
         }
     })
 
-    function allProjects(url){
+
+
+    // All Projects Function
+
+    function allProjects(url) {
         // event.preventDefault;
         $.ajax({
             url: `http://${url}/allProjectsFromDB`,
             type: 'GET',
             dataType: 'json',
-            success:function(projectsFromMongo){
+            success: function(projectsFromMongo) {
                 let i;
                 document.getElementById('mainGrid').innerHTML = '';
-                for(i = 0; i < projectsFromMongo.length; i++){
-                   
+                for (i = 0; i < projectsFromMongo.length; i++) {
+
                     let projectName = projectsFromMongo[i].name;
-                    
                     document.getElementById('mainGrid').innerHTML +=
 
-                    `<div id="${projectsFromMongo[i]._id}" value="${projectsFromMongo[i]._id}" data-bs-toggle="modal" data-bs-target="#project-modal" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
+                        `<div id="${projectsFromMongo[i]._id}" value="${projectsFromMongo[i]._id}" data-bs-toggle="modal" data-bs-target="#project-modal" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
 
-                    
                         <div id="${projectsFromMongo[i]._id}" class="hide projectCard__top">
                             <i class="projectCard__icon icon fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#updateModal"></i>
 
@@ -45,24 +45,24 @@ $(document).ready(function(){
                             <h3 id="${projectsFromMongo[i]._id}" class="projectCard__author">${projectsFromMongo[i].author}</h3>
                         </div>                        
                     </div>`
-                   
 
-                    //Modal
+
+                    // Modal
 
                     document.querySelectorAll('.projectCard').forEach(function(card) {
-                      card.addEventListener('click', function(e) {
-                          console.log(e.target.id);
-                          let id = e.target.id;
-                          
-                          $.ajax({
+                        card.addEventListener('click', function(e) {
+                            console.log(e.target.id);
+                            let id = e.target.id;
+
+                            $.ajax({
                                 url: `http://${url}/allProjectsFromDB/${id}`,
                                 type: 'GET',
                                 dataType: 'json',
-                                success:function(singleProject){
-                                  console.log(singleProject.name);
-                                  $('#project-modal-content').empty().append(
+                                success: function(singleProject) {
+                                    console.log(singleProject.name);
+                                    $('#project-modal-content').empty().append(
 
-                                    `
+                                        `
                                     <div class="modal-header">
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
@@ -90,103 +90,74 @@ $(document).ready(function(){
                                           </p>
                                       </div>
                                     </div>
-
                                     `
-                                    
-                                   
-                                    
                                     );
-                                  
                                 }
-                              })
-                      });
+                            })
+                        });
                     })
 
+
                     // Card Hover
-                   
+
                     document.querySelectorAll('.projectCard').forEach(function(card) {
                         card.addEventListener('mouseenter', function(e) {
                             const hides = e.target.querySelectorAll('.hide');
-                            for(const hide of hides){
-                            hide.classList.remove('hide');
-                            hide.classList.add('show');
-                        }
+                            for (const hide of hides) {
+                                hide.classList.remove('hide');
+                                hide.classList.add('show');
+                            }
                         });
-                      })
+                    })
 
-                      document.querySelectorAll('.projectCard').forEach(function(card) {
+                    document.querySelectorAll('.projectCard').forEach(function(card) {
                         card.addEventListener('mouseleave', function(e) {
                             const shows = e.target.querySelectorAll('.show');
-                            for(const show of shows){
-                            show.classList.remove('show');
-                            show.classList.add('hide');
-                        }
+                            for (const show of shows) {
+                                show.classList.remove('show');
+                                show.classList.add('hide');
+                            }
                         });
-                      })    
+                    })
 
-                      //Modal
-                      document.querySelectorAll('.projectCard').forEach(function(card) {
+                    // Modal
+
+                    document.querySelectorAll('.projectCard').forEach(function(card) {
                         card.addEventListener('click', function(e) {
-            
-                          let projectId = e.target.id;
-                          console.log(projectId);
 
-                          $.ajax({
-                            type: 'GET',
-                            url: `http://${url}/allProjectsFromDB/${projectId}`,
-                            dataType: 'json',
-                            success:function(singleProject){
-                              console.log(singleProject);
-                                    // $('#project-modal-header').empty().append(
-                                    //     `
-                                    //     <div class="modal-header--close">
-                                    //     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    //     </div>
-                                    //     `
-                                    // );
-                                
-                                    // $('#project-modal-body').empty().append(
-                                    //     `
-                                    //     <div class="modal-body--left">
-                                    //         <h1 class="modal-body--left__h1">Project One</h1>
-                                    //         <p class="modal-body--left__p">Name Last</p>
-                                    //     </div>
-                                    
-                                    //     <div class="modal-body--right">
-                                    //         <h3 class="modal-body--right__h3">Portfolio</h3>
-                                    //         <p class="modal-body--right__p">www.portfolio.com</p>
-                                    //     </div>
-                                
-                                    //     `
-                                    // );
-                            },//success
-                            error:function(){
-                                // alert('Not Working');
-                                console.log("Not Working")
-                            }//error
-                        })//ajax
-                            
+                            let projectId = e.target.id;
+                            console.log(projectId);
+
+                            $.ajax({
+                                type: 'GET',
+                                url: `http://${url}/allProjectsFromDB/${projectId}`,
+                                dataType: 'json',
+                                success: function(singleProject) {
+                                    console.log(singleProject);
+                                }, //success
+                                error: function() {
+                                    // alert('Not Working');
+                                    console.log("Not Working")
+                                } //error
+                            }) //ajax
+
                         });
-                      })
-                } 
-            },//success
-            error:function(){
+                    })
+                }
+            }, //success
+            error: function() {
                 alert('Unable to get Projects');
-            }//error
-            
-        })//ajax
+            } //error 
+        }) //ajax
+    } //view
 
-        // modal();
 
-    }//view
-
-    
 
 
 
     // Add Project
 
-    $('#addProjects').click(function(){
+    $('#addProjects').click(function() {
         event.preventDefault();
         console.log(url);
         let name = $('#p-title').val();
@@ -194,30 +165,30 @@ $(document).ready(function(){
         let author = $('#p-author').val();
         let description = $('#p-description').val();
         let link = $('#p-link').val();
-        console.log(name,author, image_url, link, description);
-        if (name == '' || author == '' || image_url == '' || description == ''){
-          alert('Please input all details');
+        console.log(name, author, image_url, link, description);
+        if (name == '' || author == '' || image_url == '' || description == '') {
+            alert('Please input all details');
         } else {
-          $.ajax({
-            url : `http://${url}/addProject`,
-            type : 'POST',
-            data :{
-              name: name,
-              image_url: image_url,
-              author: author,
-              description: description,
-              url: link  
-            },
-            success : function(project){
-              console.log(project);
-              alert ('Project added');
-            },
-            error : function(){
-              console.log('Error: cannot call api');
-            }//error
-          })//ajax
-        }//else
-      });//addProject
+            $.ajax({
+                url: `http://${url}/addProject`,
+                type: 'POST',
+                data: {
+                    name: name,
+                    image_url: image_url,
+                    author: author,
+                    description: description,
+                    url: link
+                },
+                success: function(project) {
+                    console.log(project);
+                    alert('Project added');
+                },
+                error: function() {
+                    console.log('Error: cannot call api');
+                } //error
+            }) //ajax
+        } //else
+    }); //addProject
 
 
 
@@ -225,7 +196,7 @@ $(document).ready(function(){
 
     //   Update Project
 
-    $('#updateProject').click(function(){
+    $('#updateProject').click(function() {
         event.preventDefault();
         let projectId = $('#u-id').val();
         let projectName = $('#u-title').val();
@@ -233,65 +204,63 @@ $(document).ready(function(){
         let projectauthor = $('#u-author').val();
         let projectDescription = $('#u-description').val();
         let projectLink = $('#u-link').val();
-      
-        console.log(projectId , projectName, projectImage_url, projectauthor, projectDescription, projectLink );
-      
-        if (projectId == ''){
-          alert('Please enter Project id for updating');
-      
-        } else{
-          $.ajax({
-            url: `http://${url}/updateProject/${projectId}`,
-            type: 'PATCH',
-            data:{
-              name: projectName,
-              image_url: projectImage_url,
-              author: projectauthor,
-              description: projectDescription,
-              url: projectLink
-            },
-            success: function(data){
-              console.log(data);
-              alert('Project Updated');
-            },
-            error: function(){
-              console.log('Error: cannot update project');
-            } // Error
-          }) // AJAX
+
+        console.log(projectId, projectName, projectImage_url, projectauthor, projectDescription, projectLink);
+
+        if (projectId == '') {
+            alert('Please enter Project id for updating');
+
+        } else {
+            $.ajax({
+                url: `http://${url}/updateProject/${projectId}`,
+                type: 'PATCH',
+                data: {
+                    name: projectName,
+                    image_url: projectImage_url,
+                    author: projectauthor,
+                    description: projectDescription,
+                    url: projectLink
+                },
+                success: function(data) {
+                    console.log(data);
+                    alert('Project Updated');
+                },
+                error: function() {
+                    console.log('Error: cannot update project');
+                } // Error
+            }) // AJAX
         } // If
-      }) // UpdateProject
+    }) // UpdateProject
 
 
 
 
 
 
-      //Delete Product
+    //Delete Product
 
-      $('#deleteProject').click(function(){
+    $('#deleteProject').click(function() {
         event.preventDefault();
         let projectId = $('#delProjectId').val();
 
         console.log(projectId);
-        if (projectId == ''){
+        if (projectId == '') {
             alert('Please enter the project ID');
         } else {
             $.ajax({
-                url : `http://${url}/deleteProject/${projectId}`,
-                type:'DELETE',
-                success : function(){
+                url: `http://${url}/deleteProject/${projectId}`,
+                type: 'DELETE',
+                success: function() {
                     console.log('Deleted');
                     alert('Project Deleted');
                 }, //success
-                error:function(){ 
-                    console.log('Error: cannot call API'); 
-                }//error
-            })//ajax
-        }//if
-    })//deleteProject
-  })
-})// doco ready end
+                error: function() {
+                    console.log('Error: cannot call API');
+                } //error
+            }) //ajax
+        } //if
+    }) //deleteProject
 
 
 
-  
+}) // doco ready end
