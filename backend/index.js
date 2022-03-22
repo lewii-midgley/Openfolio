@@ -99,6 +99,7 @@ app.get('/allProjectsFromDB',(req,res)=>{
   })
 })
 
+
 // Get for modal
 app.get('/allProjectsFromDB/:id', (req, res) => {
   const id= req.params.id;
@@ -112,3 +113,14 @@ app.get('/allProjectsFromDB/:id', (req, res) => {
      }
    });
 })
+
+// Get single project
+
+app.get('/allProjectsFromDB/',(req,res)=>{
+  const idParam = req.params.id;
+  Project.findOne({_id:idParam}, (err,project)=>{
+    res.send(project);
+  }).catch(err=> res.send(err));
+
+});//get single project
+
