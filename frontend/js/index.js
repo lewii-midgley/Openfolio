@@ -1,4 +1,3 @@
-// const project = require("../../backend/models/project.js");
 
 $(document).ready(function(){
 
@@ -13,6 +12,7 @@ $(document).ready(function(){
             url = `${configData.SERVER_URL}:${configData.SERVER_PORT}`;
             console.log(url);
             allProjects(url);
+            modal(url);
         }
     })
 
@@ -120,11 +120,55 @@ $(document).ready(function(){
                         }
                         });
                       })    
-                }
-                
+
+                      //Modal
+                      document.querySelectorAll('.projectCard').forEach(function(card) {
+                        card.addEventListener('click', function(e) {
+            
+                          let projectId = e.target.id;
+                          console.log(projectId);
+
+                          $.ajax({
+                            type: 'GET',
+                            url: `http://${url}/allProjectsFromDB/${projectId}`,
+                            dataType: 'json',
+                            success:function(singleProject){
+                              console.log(singleProject);
+                                    // $('#project-modal-header').empty().append(
+                                    //     `
+                                    //     <div class="modal-header--close">
+                                    //     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    //     </div>
+                                    //     `
+                                    // );
+                                
+                                    // $('#project-modal-body').empty().append(
+                                    //     `
+                                    //     <div class="modal-body--left">
+                                    //         <h1 class="modal-body--left__h1">Project One</h1>
+                                    //         <p class="modal-body--left__p">Name Last</p>
+                                    //     </div>
+                                    
+                                    //     <div class="modal-body--right">
+                                    //         <h3 class="modal-body--right__h3">Portfolio</h3>
+                                    //         <p class="modal-body--right__p">www.portfolio.com</p>
+                                    //     </div>
+                                
+                                    //     `
+                                    // );
+                            },//success
+                            error:function(){
+                                // alert('Not Working');
+                                console.log("Not Working")
+                            }//error
+                        })//ajax
+                            
+                        });
+                      })
+                } 
             },//success
             error:function(){
-                alert('Unable to get products');
+                alert('Unable to get Projects');
             }//error
             
         })//ajax
@@ -134,6 +178,10 @@ $(document).ready(function(){
     }//view
 
     
+
+
+
+    // Add Project
 
     $('#addProjects').click(function(){
         event.preventDefault();
@@ -145,7 +193,7 @@ $(document).ready(function(){
         let link = $('#p-link').val();
         console.log(name,author, image_url, link, description);
         if (name == '' || author == '' || image_url == '' || description == ''){
-          alert('Please login and enter all details');
+          alert('Please input all details');
         } else {
           $.ajax({
             url : `http://${url}/addProject`,
@@ -159,10 +207,10 @@ $(document).ready(function(){
             },
             success : function(project){
               console.log(project);
-              alert ('project added');
+              alert ('Project added');
             },
             error : function(){
-              console.log('error: cannot call api');
+              console.log('Error: cannot call api');
             }//error
           })//ajax
         }//else
@@ -173,9 +221,6 @@ $(document).ready(function(){
 
 
     //   Update Project
-
-
-    // Update Product Call
 
     $('#updateProject').click(function(){
         event.preventDefault();
@@ -218,9 +263,6 @@ $(document).ready(function(){
 
 
 
-
-
-
       //Delete Product
 
       $('#deleteProject').click(function(){
@@ -244,16 +286,8 @@ $(document).ready(function(){
             })//ajax
         }//if
     })//deleteProject
-
-    
-
-    
-
-})
-
-
-
-  
+  })
+})// doco ready end
 
 
 
