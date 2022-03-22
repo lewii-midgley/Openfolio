@@ -63,31 +63,34 @@ $(document).ready(function(){
                                   $('#project-modal-content').empty().append(
 
                                     `
-                                    <div id="project-modal-header" class="modal-header project-modal-header" style="background: url('${singleProject.image_url}'); background-size: cover; background-position: center;">
-                                      <div class="modal-header--close" >
-                                      
+                                    <div class="modal-header">
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                      
+                                    </div>
+
+                                    <div class="projectModal modal-dialog-scrollable">
+                                    
+                                      <div class="projectModal__top" style="background: url('${singleProject.image_url}'); background-size: cover; background-position: center;">
+
+                                      </div>
+                                      <div class="projectModal__bottom">
+                                          <div class="projectModal__left">
+                                              <h1 class="projectModal__name">${singleProject.name}</h1>
+                                              <p class="projectModal__author">${singleProject.author}</p>
+                                          </div>
+                                          <div class="projectModal__right">
+                                              <a class="projectModal__link" href="${singleProject.url}" target="_blank">Link to Portfolio</a>
+                                          </div>
+                                      </div>
+                                      <div class="projectModal__description">
+                                          <h2 class="projectModal__descriptionHeader">
+                                            Description
+                                          </h2>
+                                          <p class="projectModal__descriptionText">
+                                             ${singleProject.description}
+                                          </p>
                                       </div>
                                     </div>
 
-                                    <div id="project-modal-body" class="project-modal-body">
-                                    <div class="modal-body--left">
-                                    
-                                    <h1 class="modal-body--left__h1">${singleProject.name}</h1>
-                                    
-                                    <p class="modal-body--left__p">${singleProject.author}</p>
-                                    
-                                    </div>
-                                    
-                                    <div class="modal-body--right">
-                                    
-                                    <h3 class="modal-body--right__h3">Portfolio</h3>
-                                    
-                                    <p class="modal-body--right__p">${singleProject.url}</p>
-                                    
-                                    </div>
-                                    </div>
                                     `
                                     
                                    

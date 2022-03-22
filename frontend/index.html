@@ -77,23 +77,42 @@
 <!-- Modal -->
 
 <div class="modal fade" id="project-modal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div id="project-modal-content" class="modal-content">
-        <div id="project-modal-header" class="project-modal-header">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div id="project-modal-content" class="modal-content modal-dialog-scrollable">
+            <div id="project-modal-header" class="project-modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div id="project-modal-body" class="project-modal-body">
+            </div>
         </div>
-        <div id="project-modal-body" class="project-modal-body">
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
   <!-- Modal -->
 
 
   <!-- View Project Modal Finish -->
 
+<div class="projectModal">
+    <div class="projectModal__top">
 
+    </div>
+    <div class="projectModal__bottom">
+        <div class="projectModal__left">
+            <h1 class="modal-body--left__h1">${singleProject.name}</h1>
+            <p class="modal-body--left__p">${singleProject.author}</p>
+        </div>
+        <div class="projectModal__right">
+            <h3 class="modal-body--right__h3">Portfolio</h3>
+            <p class="modal-body--right__p">${singleProject.url}</p>            
+        </div>
+        <div class="projectModal__description">
+            <p class="projectModal__descriptionText">
+
+            </p>
+        </div>
+    </div>
+</div>
 
 
 
