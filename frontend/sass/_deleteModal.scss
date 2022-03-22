@@ -1,6 +1,50 @@
 @import 'mixins';
 @import 'var';
 
+
+.delete-project{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__bottom{
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+  &__confirm{
+    margin: 0rem 1rem 1rem 1rem;
+      padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    background: #000B32;
+    outline: none;
+    border: none;
+  }
+  &__confirm:hover{
+      color: $accentBlue;
+  }
+  &__dismiss{
+      margin: 0rem 1rem 1rem 1rem;
+      padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    background: #a7a7a7;
+    outline: none;
+    border: none;
+  }
+  &__dismiss:hover{
+      color: #000B32;
+  }
+}
 .center{
     width: 100%;
     display: flex;

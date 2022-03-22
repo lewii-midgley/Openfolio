@@ -73,28 +73,24 @@
 
     <!-- Modal -->
 
-    <div class="modal fade" id="project-modal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-            <div id="project-modal-content" class="modal-content modal-dialog-scrollable">
-                <div id="project-modal-header" class="project-modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div id="project-modal-body" class="project-modal-body">
-                </div>
+
+<div class="modal fade" id="project-modal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div id="project-modal-content" class="modal-content modal-dialog-scrollable">
+            <div id="project-modal-body" class="project-modal-body">
+                         
             </div>
         </div>
     </div>
 
+  
     <!-- Modal -->
 
     <!-- View Project Modal Finish -->
 
 
 
-
-
-
-
+              
 
 
 
@@ -216,35 +212,33 @@
 
     <!-- Delete Product Modal Start -->
 
-    <!-- Modal -->
 
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="add-project">
-                    <div class="add-project__top">
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="add-project__bottom">
-                        <h2 class="modal-title">Delete Project</h2>
-                    </div>
-                    <br>
-                </div>
-                <div class="add-project__body">
-                    <form class="add-project__form">
-                        <label class="add-project__label center" for="p-link">Please enter Project ID to delete</label>
-                        <input type="text" class="ml-5 rounded-pill first" id="delProjectId" name="inputId">
-                    </form>
-                    <br>
-                </div>
-                <div class="add-project__footer">
-                    <button id="deleteProject" type="button" class="add-project__confirm" data-bs-dismiss="modal">Confirm</button>
-                </div>
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <div class="delete-project">
+            <div class="add-project__top">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+
+            <div class="delete-project__bottom">
+                <h2 class="modal-title">Are you sure you want to delete this project?</h2>
+            </div>
+
+            <br>
+
+        </div>
+        <div class="delete-project__footer">
+            <button type="button" class="delete-project__dismiss" data-bs-dismiss="modal">No</button>
+            <button id="deleteProject" type="button" class="delete-project__confirm" data-bs-dismiss="modal">Yes</button>
         </div>
     </div>
+      
+      
+
+      
 
     <!-- Delete Product Modal Finish  -->
 
@@ -261,9 +255,6 @@
     </div>
 
     <!-- Footer Finish -->
-
-
-
 
 
 

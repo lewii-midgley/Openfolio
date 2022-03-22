@@ -14,12 +14,15 @@ $(document).ready(function() {
         }
     })
 
+  
+  
+  
+
 
 
     // All Projects Function
 
     function allProjects(url) {
-        // event.preventDefault;
         $.ajax({
             url: `http://${url}/allProjectsFromDB`,
             type: 'GET',
@@ -37,7 +40,7 @@ $(document).ready(function() {
                         <div id="${projectsFromMongo[i]._id}" class="hide projectCard__top">
                             <i class="projectCard__icon icon fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#updateModal"></i>
 
-                            <i class="projectCard__icon icon fa-solid fa-trash" data-bs-toggle="modal" data-bs-target='#deleteModal'></i>
+                            <i id="${projectsFromMongo[i]._id}" class="projectCard__icon icon fa-solid fa-trash" data-bs-toggle="modal" data-bs-target='#deleteModal'></i>
 
                         </div>
                         <div id="${projectsFromMongo[i]._id}" class="hide projectCard__bottom">
@@ -96,7 +99,40 @@ $(document).ready(function() {
                             })
                         });
                     })
+                  
+                  
+                    //Delete Project
 
+                    document.querySelectorAll('.projectCard__icon').forEach(function(trash) {
+                      trash.addEventListener('click', function(e) {
+                          
+                          let deleteId = e.target.id;
+                          console.log(deleteId);
+
+                          $('#deleteProject').click(function(){
+                            event.preventDefault();
+                    
+                            console.log(deleteId);
+                             
+                                $.ajax({
+                                    url : `http://${url}/deleteProject/${deleteId}`,
+                                    type:'DELETE',
+                                    success : function(){
+                                        console.log('Deleted');
+                                        alert('Project Deleted');
+                                    }, //success
+                                    error:function(){ 
+                                        console.log('Error: cannot call API'); 
+                                    }//error
+                                })//ajax
+                            
+                        })
+                        });
+                      })//END OF DELETE PROJECT
+
+                  
+                  
+                  
 
                     // Card Hover
 
