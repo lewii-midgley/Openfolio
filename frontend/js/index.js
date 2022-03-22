@@ -28,25 +28,77 @@ $(document).ready(function(){
                 for(i = 0; i < projectsFromMongo.length; i++){
                    
                     let projectName = projectsFromMongo[i].name;
-                    console.log(projectName);
                     
                     document.getElementById('mainGrid').innerHTML +=
 
-                    `<div id="${projectsFromMongo[i]._id}" data-bs-toggle="modal" data-bs-target="#project-modal" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
+                    `<div id="${projectsFromMongo[i]._id}" value="${projectsFromMongo[i]._id}" data-bs-toggle="modal" data-bs-target="#project-modal" class="projectCard" style="background: url('${projectsFromMongo[i].image_url}'); background-size: cover; background-position: center;">
 
                     
-                        <div class="hide projectCard__top">
+                        <div id="${projectsFromMongo[i]._id}" class="hide projectCard__top">
                             <i class="projectCard__icon icon fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#updateModal"></i>
 
                             <i class="projectCard__icon icon fa-solid fa-trash" data-bs-toggle="modal" data-bs-target='#deleteModal'></i>
 
                         </div>
-                        <div class="hide projectCard__bottom">
-                            <h2 class="projectCard__title">${projectsFromMongo[i].name}</h2>
-                            <h3 class="projectCard__author">${projectsFromMongo[i].author}</h3>
+                        <div id="${projectsFromMongo[i]._id}" class="hide projectCard__bottom">
+                            <h2 id="${projectsFromMongo[i]._id}" class="projectCard__title">${projectsFromMongo[i].name}</h2>
+                            <h3 id="${projectsFromMongo[i]._id}" class="projectCard__author">${projectsFromMongo[i].author}</h3>
                         </div>                        
                     </div>`
                    
+
+                    //Modal
+
+                    document.querySelectorAll('.projectCard').forEach(function(card) {
+                      card.addEventListener('click', function(e) {
+                          console.log(e.target.id);
+                          let id = e.target.id;
+                          
+                          $.ajax({
+                                url: `http://${url}/allProjectsFromDB/${id}`,
+                                type: 'GET',
+                                dataType: 'json',
+                                success:function(singleProject){
+                                  console.log(singleProject.name);
+                                  $('#project-modal-content').empty().append(
+
+                                    `
+                                    <div id="project-modal-header" class="modal-header project-modal-header" style="background: url('${singleProject.image_url}'); background-size: cover; background-position: center;">
+                                      <div class="modal-header--close" >
+                                      
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                      
+                                      </div>
+                                    </div>
+
+                                    <div id="project-modal-body" class="project-modal-body">
+                                    <div class="modal-body--left">
+                                    
+                                    <h1 class="modal-body--left__h1">${singleProject.name}</h1>
+                                    
+                                    <p class="modal-body--left__p">${singleProject.author}</p>
+                                    
+                                    </div>
+                                    
+                                    <div class="modal-body--right">
+                                    
+                                    <h3 class="modal-body--right__h3">Portfolio</h3>
+                                    
+                                    <p class="modal-body--right__p">${singleProject.url}</p>
+                                    
+                                    </div>
+                                    </div>
+                                    `
+                                    
+                                   
+                                    
+                                    );
+                                  
+                                }
+                              })
+                      });
+                    })
+
                     // Card Hover
                    
                     document.querySelectorAll('.projectCard').forEach(function(card) {
@@ -193,79 +245,16 @@ $(document).ready(function(){
         }//if
     })//deleteProject
 
+    
 
-  })
+    
+
+})
 
 
 
   
 
-   
- // Project Modal Start
-
-
-  function modal(url){
-
-    console.log("Hello");
-
-    $.ajax({
-        type: 'GET',
-        url: `http://${url}/allProjectsFromDB`,
-        dataType: 'json',
-        success:function(projectsFromMongo){
-
-            // projectsFromMongo.projects.forEach((item, f) => {
-            //     item.id = f + 1;
-            // })
-
-            $("Needs-a-target").click(function(){
-
-                console.log("Hello");
-
-                // let i;
-                // for(i = 0; i < projectsFromMongo.length; i++){
-
-                //     if(parseInt(this.id) === projectsFromMongo[i]._id){
-
-                $('#project-modal-header').empty().append(
-                    `
-                    <div class="modal-header--close">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    `
-                );
-            
-                $('#project-modal-body').empty().append(
-                    `
-                    <div class="modal-body--left">
-                        <h1 class="modal-body--left__h1">Project One</h1>
-                        <p class="modal-body--left__p">Name Last</p>
-                    </div>
-                
-                    <div class="modal-body--right">
-                        <h3 class="modal-body--right__h3">Portfolio</h3>
-                        <p class="modal-body--right__p">www.portfolio.com</p>
-                    </div>
-            
-                    `
-                );
-
-        //     } // End of for loop
-        // } // If
-
-            });
-        },//success
-        error:function(){
-            // alert('Not Working');
-            console.log("You suck")
-        }//error
-    })//ajax
-}//view
-
-
-
-    
-// Project Modal Finish
 
 
   
