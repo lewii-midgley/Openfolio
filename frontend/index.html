@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,29 +9,29 @@
 
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet">
-  
+
     <!-- STYLESHEET -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="../frontEnd/node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
+
 <body>
 
 
 
     <!-- Navigation Start -->
-  
+
     <nav class="navigation">
         <a href="index.html"><img class="navigation__image" src="./img/logo.png" alt="Logo"></a>
-        
     </nav>
 
     <!-- Navigation Finish -->
@@ -38,7 +39,7 @@
 
 
     <!-- Main Start -->
-    
+
     <div class="main">
         <div class="main__container">
 
@@ -46,25 +47,21 @@
 
             <div class="main__nav">
                 <div class="main__navAdd">
-                  
                     <button id="addProject" class="navChild main__btn" data-bs-toggle="modal" data-bs-target="#addProjectModal">Add project</button>
                     <i class="icon navChild main__icon fa-solid fa-circle-plus"></i>
-
                 </div>
                 <div class="main__navAuthor">
                     <button class="main__btn navChild">Author</button>
-                    <i class="icon navChild main__icon fa-solid fa-circle-chevron-down"></i>               
+                    <i class="icon navChild main__icon fa-solid fa-circle-chevron-down"></i>
                 </div>
             </div>
 
             <!-- MAIN CONTENT -->
 
             <div id="mainGrid" class="main__grid">
-                
             </div>
         </div>
     </div>
-
 
     <!-- Main Finish -->
 
@@ -72,81 +69,75 @@
 
 
 
-<!-- View Project Modal Start -->
+    <!-- View Project Modal Start -->
 
-<!-- Modal -->
+    <!-- Modal -->
+
 
 <div class="modal fade" id="project-modal" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
         <div id="project-modal-content" class="modal-content modal-dialog-scrollable">
-            
             <div id="project-modal-body" class="project-modal-body">
+                         
             </div>
         </div>
     </div>
-</div>
 
-  <!-- Modal -->
+  
+    <!-- Modal -->
 
-
-  <!-- View Project Modal Finish -->
-
+    <!-- View Project Modal Finish -->
 
 
 
-  <!-- Add Project Modal -->
+              
+
+
+
+    <!-- Add Project Modal -->
 
     <!-- Modal -->
+
     <div class="modal fade" id="addProjectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-
         <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="add-project">
-                <div class="add-project__top">
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="modal-content">
+                <div class="add-project">
+                    <div class="add-project__top">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="add-project__bottom">
+                        <h2 class="modal-title" id="exampleModalCenterTitle">Add project</h2>
+                    </div>
                 </div>
-
-                <div class="add-project__bottom">
-                    <h2 class="modal-title" id="exampleModalCenterTitle">Add project</h2>
+                <div class="add-project__body">
+                    <form class="add-project__form" id="addProjectForm">
+                        <label class="add-project__label" for="p-title">Title</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="p-title" type="text" name="projectName">
+                        <br>
+                        <label class="add-project__label" for="p-image">Image</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="p-image" type="text" name="projectImage">
+                        <br>
+                        <label class="add-project__label" for="p-author">Author</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="p-author" type="text" name="projectAuthor">
+                        <br>
+                        <label class="add-project__label" for="p-description">Description</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="p-description" type="text" name="projectDescription">
+                        <br>
+                        <label class="add-project__label" for="p-link">Link to portfolio</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="p-link" type="text" name="projectLink">
+                    </form>
+                </div>
+                <div class="add-project__footer">
+                    <button id="addProjects" type="button" class="add-project__confirm" data-bs-dismiss="modal">Confirm</button>
                 </div>
             </div>
-            <div class="add-project__body">
-                <form class="add-project__form" id="addProjectForm">
-                    <label class="add-project__label" for="p-title">Title</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="p-title" type="text" name="projectName">
-
-                    <br>
-
-                    <label class="add-project__label" for="p-image">Image</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="p-image" type="text" name="projectImage">
-
-                    <br>
-
-                    <label class="add-project__label" for="p-author">Author</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="p-author" type="text" name="projectAuthor">
-
-                    <br>
-
-                    <label class="add-project__label" for="p-description">Description</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="p-description" type="text" name="projectDescription">
-
-                    <br>
-
-                    <label class="add-project__label" for="p-link">Link to portfolio</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="p-link" type="text" name="projectLink">
-                </form>
-            </div>
-            <div class="add-project__footer">
-                <button id="addProjects" type="button" class="add-project__confirm" data-bs-dismiss="modal">Confirm</button>
-            </div>
-        </div>
         </div>
     </div>
 
@@ -161,67 +152,55 @@
 
 
 
-      <!-- Update Project Modal -->
+    <!-- Update Project Modal -->
 
     <!-- Modal -->
 
     <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-
         <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="add-project">
-                <div class="add-project__top">
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+            <div class="modal-content">
+                <div class="add-project">
+                    <div class="add-project__top">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="add-project__bottom">
+                        <h2 class="modal-title">Update project</h2>
+                    </div>
                 </div>
+                <div class="add-project__body">
+                    <form class="add-project__form">
 
-                <div class="add-project__bottom">
-                    <h2 class="modal-title">Update project</h2>
+                        <label class="add-project__label" for="p-title">Project ID</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="u-id" type="text" name="projectName">
+                        <br>
+                        <label class="add-project__label" for="p-title">Title</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="u-title" type="text" name="projectName">
+                        <br>
+                        <label class="add-project__label" for="p-image">Image</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="u-image" type="text" name="projectImage">
+                        <br>
+                        <label class="add-project__label" for="p-author">Author</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="u-author" type="text" name="projectAuthor">
+                        <br>
+                        <label class="add-project__label" for="p-description">Description</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="u-description" type="text" name="projectDescription">
+                        <br>
+                        <label class="add-project__label" for="u-link">Link to portfolio</label>
+                        <br>
+                        <input class="rounded-pill add-project__input" id="u-link" type="text" name="projectLink">
+                    </form>
+                </div>
+                <div class="add-project__footer">
+                    <button id="updateProject" type="button" class="add-project__confirm" data-bs-dismiss="modal">Update</button>
                 </div>
             </div>
-            <div class="add-project__body">
-                <form class="add-project__form">
-
-                    <label class="add-project__label" for="p-title">Project ID</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="u-id" type="text" name="projectName">
-
-                    <br>
-
-                    <label class="add-project__label" for="p-title">Title</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="u-title" type="text" name="projectName">
-
-                    <br>
-
-                    <label class="add-project__label" for="p-image">Image</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="u-image" type="text" name="projectImage">
-
-                    <br>
-
-                    <label class="add-project__label" for="p-author">Author</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="u-author" type="text" name="projectAuthor">
-
-                    <br>
-
-                    <label class="add-project__label" for="p-description">Description</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="u-description" type="text" name="projectDescription">
-
-                    <br>
-
-                    <label class="add-project__label" for="u-link">Link to portfolio</label>
-                    <br>
-                    <input class="rounded-pill add-project__input" id="u-link" type="text" name="projectLink">
-                </form>
-            </div>
-            <div class="add-project__footer">
-                <button id="updateProject" type="button" class="add-project__confirm" data-bs-dismiss="modal">Update</button>
-            </div>
-        </div>
         </div>
     </div>
 
@@ -231,9 +210,8 @@
 
 
 
-     <!-- Delete Product Modal Start -->
-  
-  <!-- Modal -->
+    <!-- Delete Product Modal Start -->
+
 
   <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -257,17 +235,12 @@
             <button id="deleteProject" type="button" class="delete-project__confirm" data-bs-dismiss="modal">Yes</button>
         </div>
     </div>
-    </div>
-</div>
+      
+      
 
-  <!-- Delete Product Modal Finish  -->
+      
 
-
-
-
-
-
-
+    <!-- Delete Product Modal Finish  -->
 
 
 
@@ -282,8 +255,8 @@
     </div>
 
     <!-- Footer Finish -->
-  
-  
+
+
 
 
 
@@ -299,4 +272,5 @@
     <!-- SCRIPT -->
     <script src="./js/index.js"></script>
 </body>
+
 </html>
