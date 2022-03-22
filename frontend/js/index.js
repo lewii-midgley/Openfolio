@@ -1,4 +1,4 @@
-// const project = require("../../backend/models/project.js");
+// INDEX
 
 $(document).ready(function(){
 
