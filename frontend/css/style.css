@@ -177,72 +177,55 @@
   width: 100vw;
 }
 
-.project-modal-header {
-  height: 45vh;
-  width: 100%;
-  background: url(../img/testbackground.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+.projectModal {
+  min-height: 80vh;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  overflow-y: scroll;
 }
-.project-modal-header--close {
-  height: 20%;
-  width: 100%;
-  display: flex !important;
-  align-items: center;
-  justify-content: flex-end;
+.projectModal__top {
+  grid-row: 1/3;
+  min-height: 400px;
 }
-
-.project-modal-body {
-  height: 20vh;
-  width: 100%;
-  display: flex;
+.projectModal__bottom {
+  grid-row: 3/4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
-.project-modal-body--left {
-  height: 100%;
-  width: 50%;
+.projectModal__left {
+  grid-column: 1/3;
+  padding: 2rem 1rem 1rem 3rem;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   flex-direction: column;
-  padding-left: 8%;
 }
-.project-modal-body--left__h1 {
-  font-size: 2.6rem;
-  font-family: "Unica One", cursive;
-  text-align: left;
-  padding-bottom: 0.4rem;
-  color: #000B32;
-  letter-spacing: 0.1rem;
-}
-.project-modal-body--left__p {
-  font-size: 1.4rem;
-  font-family: "Poppins", sans-serif;
-  letter-spacing: 0.05rem;
-}
-.project-modal-body--right {
-  height: 100%;
-  width: 50%;
+.projectModal__right {
+  grid-column: 3/4;
+  padding: 2rem 1rem 1rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-right: 8%;
-  padding-top: 1rem;
 }
-.project-modal-body--right__h3 {
-  font-size: 1.6rem;
-  font-family: "Unica One", cursive;
-  text-align: center;
-  padding-bottom: 0.4rem;
-  color: #000B32;
-  letter-spacing: 0.05rem;
-}
-.project-modal-body--right__p {
-  font-size: 1.4rem;
+.projectModal__name {
   font-family: "Poppins", sans-serif;
-  text-align: center;
-  letter-spacing: 0.1rem;
+  font-weight: 700;
+}
+.projectModal__author {
+  font-size: 1rem;
+}
+.projectModal__link {
+  background: #000B32;
+  padding: 1rem;
+  color: white;
+}
+.projectModal__description {
+  padding: 1rem 3rem 5rem 3rem;
+}
+.projectModal__descriptionHeader {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 200;
 }
 
 .center {
@@ -431,42 +414,4 @@ a {
 .modalButton {
   height: 10vh;
   width: 100vw;
-}
-
-.modal-header {
-  height: 50vh;
-  width: 100%;
-  background: pink;
-  padding: 0;
-  margin: 0;
-}
-
-.modal-header-IMG {
-  height: 100%;
-  width: 100%;
-}
-
-.modal-body {
-  height: 20vh;
-  width: 100%;
-  display: flex;
-  border: 2px solid green;
-}
-.modal-body--left {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 2px solid green;
-}
-.modal-body--right {
-  height: 100%;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 2px solid green;
 }
