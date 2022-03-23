@@ -34,9 +34,9 @@ $(document).ready(function(){
 
                     
                         <div id="${projectsFromMongo[i]._id}" class="hide projectCard__top">
-                            <i class="projectCard__icon icon fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#updateModal"></i>
+                            <i class="projectCard__icon projectCard__edit icon fa-solid fa-pen" data-bs-toggle="modal" data-bs-target="#updateModal"></i>
 
-                            <i id="${projectsFromMongo[i]._id}" class="projectCard__icon icon fa-solid fa-trash" data-bs-toggle="modal" data-bs-target='#deleteModal'></i>
+                            <i value="${projectsFromMongo[i]._id}" class="projectCard__icon projectCard__trash icon fa-solid fa-trash" data-bs-toggle="modal" data-bs-target='#deleteModal'></i>
 
                         </div>
                         <div id="${projectsFromMongo[i]._id}" class="hide projectCard__bottom">
@@ -103,10 +103,10 @@ $(document).ready(function(){
 
                     //Delete Project
 
-                    document.querySelectorAll('.projectCard__icon').forEach(function(trash) {
+                    document.querySelectorAll('.projectCard__trash').forEach(function(trash) {
                       trash.addEventListener('click', function(e) {
                           
-                          let deleteId = e.target.id;
+                          let deleteId = e.target.parentNode.id;
                           console.log(deleteId);
 
                           $('#deleteProject').click(function(){
@@ -129,6 +129,50 @@ $(document).ready(function(){
                         })
                         });
                       })//END OF DELETE PROJECT
+
+                    // UPDATE PROJECT
+
+                    document.querySelectorAll('.projectCard__edit').forEach(function(edit) {
+                      edit.addEventListener('click', function(e) {
+                          
+                        console.log(e.target.parentNode.id);
+                        let updateId = e.target.parentNode.id;
+                          // let updateId = e.target.id;
+                          // console.log(updateId);
+
+                          $('#updateProject').click(function(){
+                            event.preventDefault();
+                    
+                            console.log(updateId);
+                            let projectName = $('#u-title').val();
+                            let projectImage_url = $('#u-image').val();
+                            let projectauthor = $('#u-author').val();
+                            let projectDescription = $('#u-description').val();
+                            let projectLink = $('#u-link').val();
+                            $.ajax({
+                              url: `http://${url}/updateProject/${updateId}`,
+                              type: 'PATCH',
+                              data:{
+                                name: projectName,
+                                image_url: projectImage_url,
+                                author: projectauthor,
+                                description: projectDescription,
+                                url: projectLink
+                              },
+                              success: function(data){
+                                console.log(data);
+                                alert('Project Updated');
+                              },
+                              error: function(){
+                                console.log('Error: cannot update project');
+                              } // Error
+                            }) // AJAX
+                            
+                        })
+                        });
+                      })//END OF DELETE PROJECT
+
+                    // END OF UPDATE PROJECT
 
                     // Card Hover
                    
@@ -208,41 +252,41 @@ $(document).ready(function(){
 
     // Update Product Call
 
-    $('#updateProject').click(function(){
-        event.preventDefault();
-        let projectId = $('#u-id').val();
-        let projectName = $('#u-title').val();
-        let projectImage_url = $('#u-image').val();
-        let projectauthor = $('#u-author').val();
-        let projectDescription = $('#u-description').val();
-        let projectLink = $('#u-link').val();
+    // $('#updateProject').click(function(){
+    //     event.preventDefault();
+    //     let projectId = $('#u-id').val();
+    //     let projectName = $('#u-title').val();
+    //     let projectImage_url = $('#u-image').val();
+    //     let projectauthor = $('#u-author').val();
+    //     let projectDescription = $('#u-description').val();
+    //     let projectLink = $('#u-link').val();
       
-        console.log(projectId , projectName, projectImage_url, projectauthor, projectDescription, projectLink );
+    //     console.log(projectId , projectName, projectImage_url, projectauthor, projectDescription, projectLink );
       
-        if (projectId == ''){
-          alert('Please enter Project id for updating');
+    //     if (projectId == ''){
+    //       alert('Please enter Project id for updating');
       
-        } else{
-          $.ajax({
-            url: `http://${url}/updateProject/${projectId}`,
-            type: 'PATCH',
-            data:{
-              name: projectName,
-              image_url: projectImage_url,
-              author: projectauthor,
-              description: projectDescription,
-              url: projectLink
-            },
-            success: function(data){
-              console.log(data);
-              alert('Project Updated');
-            },
-            error: function(){
-              console.log('Error: cannot update project');
-            } // Error
-          }) // AJAX
-        } // If
-      }) // UpdateProject
+    //     } else{
+    //       $.ajax({
+    //         url: `http://${url}/updateProject/${projectId}`,
+    //         type: 'PATCH',
+    //         data:{
+    //           name: projectName,
+    //           image_url: projectImage_url,
+    //           author: projectauthor,
+    //           description: projectDescription,
+    //           url: projectLink
+    //         },
+    //         success: function(data){
+    //           console.log(data);
+    //           alert('Project Updated');
+    //         },
+    //         error: function(){
+    //           console.log('Error: cannot update project');
+    //         } // Error
+    //       }) // AJAX
+    //     } // If
+    //   }) // UpdateProject
 
 
 
