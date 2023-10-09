@@ -48,7 +48,7 @@ $(document).ready(function(){
 
                     //Modal
 
-                    document.querySelectorAll('.projectCard').forEach(function(card) {
+                    document.querySelectorAll('.projectCard').forEach(function(card){
                       card.addEventListener('click', function(e) {
                           console.log(e.target.id);
                           let id = e.target.id;
@@ -67,7 +67,6 @@ $(document).ready(function(){
                                     </div>
 
                                     <div class="projectModal modal-dialog-scrollable">
-                                    
                                       <div class="projectModal__top" style="background: url('${singleProject.image_url}'); background-size: cover; background-position: center;">
 
                                       </div>
@@ -89,17 +88,15 @@ $(document).ready(function(){
                                           </p>
                                       </div>
                                     </div>
-
                                     `
-                                    
-                                   
-                                    
                                     );
                                   
                                 }
                               })
                       });
                     })
+
+
 
                     //Delete Project
 
@@ -125,10 +122,13 @@ $(document).ready(function(){
                                         console.log('Error: cannot call API'); 
                                     }//error
                                 })//ajax
-                            
                         })
                         });
                       })//END OF DELETE PROJECT
+
+
+
+
 
                     // UPDATE PROJECT
 
@@ -174,6 +174,9 @@ $(document).ready(function(){
 
                     // END OF UPDATE PROJECT
 
+
+
+                    
                     // Card Hover
                    
                     document.querySelectorAll('.projectCard').forEach(function(card) {

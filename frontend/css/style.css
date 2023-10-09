@@ -142,7 +142,7 @@
 }
 
 .footerContainer {
-  height: 20vh;
+  height: 10rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -161,7 +161,7 @@
 
 .navigation {
   background: #000B32;
-  height: 15vh;
+  height: 10rem;
   color: white;
   display: flex;
   align-items: center;
@@ -293,7 +293,7 @@
 }
 
 .footerContainer {
-  height: 20vh;
+  height: 10rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -312,7 +312,7 @@
 
 .navigation {
   background: #000B32;
-  height: 15vh;
+  height: 10rem;
   color: white;
   display: flex;
   align-items: center;

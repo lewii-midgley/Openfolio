@@ -5,8 +5,12 @@ const mongoose = require('mongoose'); // includes mongoose
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const config = require('./config.json');
+
 const Project = require('./models/project.js');
+
 const port = 5000;
+
+
 
 app.use((req,res,next)=>{
     console.log(`${req.method} request ${req.url}`);
@@ -98,6 +102,8 @@ app.get('/allProjectsFromDB',(req,res)=>{
     res.send(result);
   })
 })
+
+
 
 // Get for modal
 app.get('/allProjectsFromDB/:id', (req, res) => {
